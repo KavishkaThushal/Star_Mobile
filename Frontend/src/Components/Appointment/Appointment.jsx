@@ -27,7 +27,7 @@ function Appointment() {
                         </span>
                         <span>
                             <label>Phone </label>
-                            <input type='number' placeholder='Enter your phone number' required />
+                            <input type='text' placeholder='Enter your phone number' required />
                         </span>
                     </span>
                     <span className='appointment-text-container'>

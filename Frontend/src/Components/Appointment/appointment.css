@@ -1,6 +1,7 @@
 .appointment-wrapper{
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 80%;
     margin: 2rem auto;
     gap: 5rem;
@@ -24,6 +25,11 @@
     align-items: center;
     gap: .8rem;
     height: 200px;
+    transition: all .2s ease-in-out;
+}
+
+.appointment-right .appointment-right-tabs:hover{
+    transform: scale(1.05);
 }
 .appointment-right-tabs svg{
     font-size: 1.3rem;
@@ -31,6 +37,7 @@
 
 .appointment-right-tabs h3{
     font-size: 1rem;
+    font-weight: 600;
 }
 .appointment-right-tabs p{
     font-size: .8rem;
@@ -42,6 +49,10 @@
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
+}
+
+.appointment-wrapper .appointment-left h2{
+   font-weight: 500;
 }
 
 .appointment-left .appointment-form{
@@ -104,5 +115,74 @@
 }
 .appointment-form button:hover{
     background-color: #03e7c8;
+    transform: scale(1.05);
+    
+}
+
+@media screen and (max-width: 768px) {
+    .appointment-wrapper .appointment-left h2{
+        text-align: center;
+     }
+     .appointment-form .form-row{
+        flex-direction: column;
+        
+    }
+    .appointment-form .appointment-text-container textarea{
+         width: 100%;
+     
+    }
+    .form-row span label{
+    font-size: .7rem;
+}
+.form-row span input{
+    padding: .3rem .5rem;
+    border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  outline: none;
+}
+
+
+.appointment-form .appointment-text-container label{
+    font-size: .7rem;
+}
+
+
+
+.appointment-form button{
+    padding: .3rem .5rem;
+    margin-top: 1rem;
+    width: 150px;
+    font-size: .7rem; 
+}
+
+.appointment-right-tabs svg{
+    font-size: 1rem;
+}
+
+.appointment-right-tabs h3{
+    font-size: .8rem;
+    font-weight: 600;
+}
+.appointment-right-tabs p{
+    font-size: .7rem;
+    text-align: center;
+}
+.appointment-right .appointment-right-tabs{
+    height: 150px;
+    
+}
+
+
+}
+@media screen and (max-width: 500px) {
+    .appointment-wrapper{
+        flex-direction: column;
+        
+    }
+    
+    .appointment-right .appointment-right-tabs{
+        display: none;
+        
+    }
     
 }
