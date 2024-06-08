@@ -1,8 +1,14 @@
 import './card.css'
 import ProductImg from '../../assets/product.png'
-function Card() {
+import { useNavigate } from 'react-router-dom'
+
+
+function Card({id}) {
+  const navigate=useNavigate()
+
+  
   return (
-    <div className='card-container'>
+    <div className='card-container' onClick={()=>(navigate(`/store/${id}`))}>
         <div className='card-img-container'>
             <img src={ProductImg} alt='product'/>
         </div>

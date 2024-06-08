@@ -142,12 +142,9 @@ function Store() {
 
 
         <div className='store-content'>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+            <Card id={1}/>
+            <Card id={2}/>
+            
         </div>
     </div>
     </>

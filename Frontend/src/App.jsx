@@ -9,6 +9,7 @@ import ContactUs from './Pages/ContactUs/ContactUs'
 import Login from './Pages/Login/Login'
 import Register from './Pages/Register/Register'
 import Store from './Pages/Store/Store'
+import Item from './Pages/Item/Item'
 
 function App() {
   
@@ -24,7 +25,10 @@ function App() {
         <Route path='/contactus' element={<ContactUs/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
-        <Route path='/store' element={<Store/>}/>
+        <Route path='/store'>
+          <Route index element={<Store/>}/>
+          <Route path=':itemId' element={<Item/>}/>
+        </Route>
       </Route>
      </Routes>
     </BrowserRouter>
