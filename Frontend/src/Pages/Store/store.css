@@ -1,0 +1,138 @@
+
+
+.store-hero-container{
+    background: url('../../assets/HeroImg.png');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.store-hero-container h1{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    
+}
+.store-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+   
+    margin: 1rem auto;
+   
+}
+
+.store-wrapper .side-menu{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    
+    padding: 2rem 1.5rem;
+    gap: 1rem;
+}
+
+.store-wrapper .side-menu hr{
+    border: 1px solid #e0e0e0;
+    width: 80%;
+
+}
+
+
+.store-wrapper .side-menu .filter-section{
+display: flex;
+flex-direction: column;
+gap: .8rem;
+font-size: 1.2rem;
+font-weight: 500;
+}
+
+.store-wrapper .side-menu .filter-section span{
+    display: flex;
+    flex-direction: row;
+    gap: .8rem;
+    align-items: center;
+}
+
+.filter-section span input{
+    width: 20px;
+    height: 20px;
+    
+}
+
+.filter-section span input:hover{
+    cursor: pointer;
+    
+}
+
+.filter-section span p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.store-wrapper .store-content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    row-gap: 2rem;
+    margin: auto;
+}
+
+.side-menu-toggle{
+    display: none;
+
+}
+
+@media screen and (max-width: 1200px){
+    .store-wrapper .store-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+
+@media screen and (max-width: 768px){
+       
+.store-wrapper .side-menu .filter-section{ 
+    font-size: 1rem; 
+    }
+     
+    .filter-section span input{
+        width: 15px;
+        height: 15px;
+        
+    }
+      
+    .filter-section span p{
+        font-size: .8rem;
+        font-weight: 400;
+    }
+}
+
+@media screen and (max-width: 500px){
+    
+    
+    .store-wrapper .store-content{
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+@media screen and (max-width: 320px){
+    .store-wrapper{
+        
+        flex-direction: column;
+        
+       
+    }
+    .store-wrapper .side-menu{
+        display: none;
+    }
+    
+
+    
+    
+}
