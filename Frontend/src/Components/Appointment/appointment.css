@@ -81,6 +81,7 @@
     padding: .5rem 1rem;
     border-radius: 4px;
   border: 1px solid #e0e0e0;
+  font-size: .9rem;
   outline: none;
 }
 
@@ -98,6 +99,7 @@
     padding: .5rem 1rem;
     border-radius: 4px;
   border: 1px solid #e0e0e0;
+  font-size: .9rem;
   width: 50%;
   outline: none;
 }
@@ -107,6 +109,7 @@
     margin-top: 2rem;
     border: none;
     background-color: #02BBA3;
+    font-size: .9rem;
     color: white;
     cursor: pointer;
     font-weight: 500;
@@ -128,6 +131,8 @@
         
     }
     .appointment-form .appointment-text-container textarea{
+        padding: .3rem .5rem;
+        font-size: .8rem;
          width: 100%;
      
     }
@@ -136,9 +141,7 @@
 }
 .form-row span input{
     padding: .3rem .5rem;
-    border-radius: 4px;
-  border: 1px solid #e0e0e0;
-  outline: none;
+    font-size: .8rem;
 }
 
 
@@ -179,7 +182,12 @@
         flex-direction: column;
         
     }
-    
+    .form-row span input{
+        font-size: .8rem;
+    }
+    .appointment-form .appointment-text-container textarea{
+       font-size: .8rem;
+    }
     .appointment-right .appointment-right-tabs{
         display: none;
         

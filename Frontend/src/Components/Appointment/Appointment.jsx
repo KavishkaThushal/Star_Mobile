@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import './appointment.css'
 import { GrLocation } from "react-icons/gr";
 import { LuPhone } from "react-icons/lu";
 import { TbClockHour7 } from "react-icons/tb";
+import BookingModel from '../BookingModel/BookingModel';
 
 function Appointment() {
+    const [opened, setOpened] = useState(false)
   return (
     <div className='appointment-wrapper'>
             <div className='appointment-left'>
@@ -34,7 +37,12 @@ function Appointment() {
                     <label>Your Device issue</label>
                     <textarea rows={4} placeholder='Enter your message' required></textarea>
                     </span>
-                    <button type='submit'>Make Appointment</button>
+                    <button type='submit' onClick={()=>(setOpened((prev)=>(!prev)))}>Make Appointment</button>
+                    <BookingModel
+                    opened={opened}
+                    setOpened={setOpened}
+                    
+                    />
                 </div>
             </div>
 

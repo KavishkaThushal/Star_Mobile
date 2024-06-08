@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-
+import { MantineProvider } from '@mantine/core';
 import Layout from './Components/Layout/Layout'
 import Home from './Pages/Home/Home'
 import AboutUs from './Pages/About Us/AboutUs'
@@ -16,7 +16,8 @@ function App() {
   
 
   return (
-    <BrowserRouter>
+    <MantineProvider>
+      <BrowserRouter>
      <Routes>
       <Route element={<Layout/>}>
         <Route path='/' element={<Home/>}/>
@@ -34,6 +35,7 @@ function App() {
       </Route>
      </Routes>
     </BrowserRouter>
+    </MantineProvider>
   )
 }
 
