@@ -3,6 +3,15 @@ import ItemImg from '../../assets/product.png'
 import { MdLocalPhone } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { ImLocation2 } from "react-icons/im";
+
+const productFeature=[
+    {CPU: 'Snapdragon 685 Octa Core CPU, up to 2.8GHz, GPU: Adreno'},
+    {Screen: '6.67 inch 2400x1080P AMOLED Display, 120Hz Refresh Rate'},
+    {RAM_ROM: '6GB+128GB / 8GB+128GB / 8GB+256GB'},
+    {Camera: '108MP+8MP+2MP Triple Rear Camera, 16MP Front Camera'},
+    {Battery: '5000mAh(Typ), Support 33W Fast Charging, 33W Fast Charger in-box'}
+]
+
 function Item() {
   return (
     <div className='store-item-wrapper'>
@@ -47,11 +56,14 @@ function Item() {
         <div className='item-features'>
             <div className='mobile-features'>
                 <h2>Features</h2>
-                <span className='feature'><p>CPU</p><p>:</p><p>Snapdragon 685 Octa Core CPU, up to 2.8GHz, GPU: Adreno </p></span>
-                <span className='feature'><p>Screen</p><p>:</p><p>6.67 inch 2400x1080P AMOLED Display, 120Hz Refresh Rate </p></span>
-                <span className='feature'><p>RAM+ROM</p><p>:</p><p>6GB+128GB / 8GB+128GB / 8GB+256GB </p></span>
-                <span className='feature'><p>Camera</p><p>:</p><p>108MP+8MP+2MP Triple Rear Camera, 16MP Front Camera </p></span>
-                <span className='feature'><p>Battery</p><p>:</p><p> 5000mAh(Typ), Support 33W Fast Charging, 33W Fast Charger in-box</p></span>
+                {
+                    productFeature.map((feature, index) => {
+                        return (
+                            <span key={index} className='feature'><p>{Object.keys(feature)}</p><p>:</p><p>{Object.values(feature)}</p></span>
+                        )
+                    })
+                }
+               
             </div>
 
             <div className='item-info'>
