@@ -1,0 +1,227 @@
+.store-item-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    gap: 2rem;
+
+}
+
+.store-item-wrapper .item-content-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+   
+}
+
+.store-item-wrapper .item-content-row .item-img-container{
+ 
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.item-img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.store-item-wrapper .item-content-row .item-mobile-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.item-mobile-details h2{
+    font-size: 1.5rem;
+ font-weight: 500;
+}
+
+.item-mobile-details p{
+    font-size: .8rem;
+ 
+}
+
+.item-mobile-details .item-price{
+    font-size: 1rem;
+    color: red;
+}
+
+.item-mobile-details .details-footer{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.item-mobile-details .details-footer .bundle-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .3rem;
+}
+.bundle-container p{
+    font-weight: 500;
+}
+.bundle-container p:last-child{
+    font-size: .8rem;
+    color: #afafaf;
+}
+
+.details-footer span:last-child{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.details-footer span:last-child .bundle-btn{
+    border: 1px solid #e0e0e0;
+    padding: .5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    gap: .3rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all .2s ease-in-out;
+}
+
+.bundle-btn:hover{
+   color: #02BBA3;
+}
+
+.item-footer{
+    color: #afafaf;
+    font-weight: 500;
+}
+
+.store-item-wrapper .item-features{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.item-features .mobile-features{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+.mobile-features .feature{
+    display: flex;
+    flex-direction: row;
+    gap: .3rem;
+    align-items: center;
+    font-size: .8rem;
+}
+.mobile-features .feature p:first-child{
+   font-weight: 500;
+   width: 80px;
+}
+
+.item-features .item-info{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    
+}
+
+.item-info .item-info-content{
+    font-size: .8rem;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+   
+}
+.item-info-content span{
+    display: flex;
+    flex-direction: row;
+    gap: .4rem;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .store-item-wrapper{
+        gap: .5rem;
+    
+    }
+    
+
+    .store-item-wrapper .item-content-row .item-img-container{
+        width: 50%;
+    }
+
+    .item-mobile-details h2{
+        font-size: 1.2rem;
+    }
+    
+    .item-mobile-details p{
+        font-size: .6rem;
+     
+    }
+    
+    .bundle-container p:last-child{
+        font-size: .6rem;
+        color: #afafaf;
+    }
+    
+    .mobile-features .feature{
+        font-size: .6rem;
+    }
+    .mobile-features .feature p:first-child{
+       font-weight: 500;
+       width: 55px;
+    }
+    .mobile-features h2{
+        font-size: 1rem;
+    }
+
+    .item-info h3{
+        font-size: 1rem;
+    }
+
+    .item-info .item-info-content{
+        font-size: .6rem;
+        
+       
+    }
+    .store-item-wrapper .item-features{
+        gap: 1.6rem;
+    }
+    
+}
+
+@media screen and (max-width: 480px){
+    .store-item-wrapper{
+     
+        width: 80%;
+        margin: auto;
+       
+    
+    }
+
+    .store-item-wrapper .item-content-row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+       
+    }
+
+    .store-item-wrapper .item-content-row .item-img-container{
+        width: 60%;
+    }
+
+    .item-mobile-details h2{
+        font-size: 1rem;
+    }
+    
+}

@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: row;
     width: 95%;
-   
+   position: relative;
     margin: 1rem auto;
    
 }
@@ -87,6 +87,62 @@ font-weight: 500;
 
 }
 
+
+.side-menu-toggle-show{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 80%;
+    margin: auto;
+    position: absolute;
+    background-color: rgba(46, 76, 102, 0.9);
+    color: white;
+    top: 4rem;
+    left: 1.8rem;
+    border-radius: 8px;
+    gap: 1rem;
+    
+    
+    
+}
+.side-menu-toggle-show svg{
+    position: absolute;
+    top: .3rem;
+    right: .3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.side-menu-toggle-show .filter-section{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.side-menu-toggle-show .filter-section span{
+    display: flex;
+    flex-direction: row;
+    gap: .8rem;
+    align-items: center;
+}
+
+.filter {
+    font-size: .8rem;
+    font-weight: 400;
+    border: 1px solid #e0e0e0;
+    padding: .5rem 1rem;
+    width: max-content;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    
+}
+.filter:hover{
+    background-color: rgba(46, 76, 102, 0.9);
+    color: white;
+}
+
 @media screen and (max-width: 1200px){
     .store-wrapper .store-content{
         grid-template-columns: repeat(2, 1fr);
@@ -113,7 +169,12 @@ font-weight: 500;
 }
 
 @media screen and (max-width: 500px){
-    
+    .store-hero-container{
+        height: 30vh;
+    }
+    .store-hero-container h1{
+        font-size: 1.2rem;
+    }
     
     .store-wrapper .store-content{
         grid-template-columns: 1fr;
@@ -122,9 +183,16 @@ font-weight: 500;
 }
 
 @media screen and (max-width: 320px){
+    .store-hero-container{
+        height: 30vh;
+    }
+    .store-hero-container h1{
+        font-size: 1.2rem;
+    }
     .store-wrapper{
         
         flex-direction: column;
+       
         
        
     }
@@ -132,6 +200,9 @@ font-weight: 500;
         display: none;
     }
     
+    .filter{
+        display: block;
+    }
 
     
     
