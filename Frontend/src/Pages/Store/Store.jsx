@@ -1,17 +1,21 @@
+import { useState } from 'react'
 import Card from '../../Components/Card/Card'
+import { MdClose } from "react-icons/md";
 import './store.css'
 
 
 function Store() {
+  const [filter, setFilter] = useState(false)
   return (
     <>
     <div className='store-hero-container'>
         <h1>STORE</h1>
     </div>
     <div className='store-wrapper'>
-        <h3>Filter</h3>
-        <div className='side-menu-toggle'>
-        <div className='filter-section'>
+        <h3 className='filter' onClick={()=>setFilter((prev)=>!prev)}>Filter</h3>
+        <div className={filter? 'side-menu-toggle-show':'side-menu-toggle'}>
+              <MdClose onClick={()=>setFilter((prev)=>!prev)} />
+              <div className='filter-section'>
                 <h3>Category</h3>
                 
                 <span>
@@ -73,6 +77,8 @@ function Store() {
                 </div>
 
                 <hr/>
+         
+        
 
 
                 
