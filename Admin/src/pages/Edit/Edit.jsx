@@ -1,17 +1,12 @@
 import React, { useRef } from 'react'
 import Upload from '../../assets/upload.gif'
-import './add.css'
-
-
+import './Edit.css'
 const FeaturesList=[
   'CPU','Screen','RAM_ROM','Camera','Battery','OS','Sensor','Other'
 ]
 
-function Add() {
-
+function Edit() {
   const imgref=useRef()
-  
-
   return (
     <div className='add-wrapper'>
       <p style={{fontSize:'.8rem',fontWeight:'500'}}>Upload Image</p>
@@ -54,7 +49,7 @@ function Add() {
          <textarea rows={4} placeholder='Description' id='description' required></textarea>
         </span>
 
-        <button >Create Item</button>
+        <button>Create Item</button>
  
         
 
@@ -62,4 +57,4 @@ function Add() {
   )
 }
 
-export default Add
+export default Edit
