@@ -1,0 +1,120 @@
+.signin-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(../../assets/home.png);
+    background-size: cover;
+    background-position: center;
+
+
+}
+
+.signin-wrapper .signin-container{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 20%;
+    margin: auto;
+    gap: 1rem;
+    align-items: center;
+    background: rgba(78, 205, 196, 0.4); /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, rgba(78, 205, 196, 0.4), rgba(85, 98, 112, 0.4)); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, rgba(78, 205, 196, 0.4), rgba(85, 98, 112, 0.4));
+
+
+
+}
+.signin-container h3{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+}
+.signin-container span{
+        display: flex;
+        flex-direction: column;
+        font-size: .8rem;
+        width: 100%;
+        gap: .2rem;
+}
+.signin-container span label{
+   
+    color: white;
+}
+.signin-container input{
+    
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.signin-container button{
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #4ecdc4; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4ecdc4, #556270); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4ecdc4, #556270);
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    transition: all .3s ease-in-out;
+    border: none;
+}
+.signin-container button:hover{
+    transform: scale(1.03);
+}
+
+@media screen and (max-width: 1024px){
+    .signin-wrapper .signin-container{
+        width: 30%;
+        
+    
+    
+    }
+    .signin-container h3{
+        font-size: 1rem;
+    }
+    
+}
+@media screen and (max-width: 768px){
+    .signin-wrapper .signin-container{
+        width: 40%;
+        
+    
+    
+    }
+    .signin-container h3{
+        font-size: 1rem;
+    }
+    
+}
+@media screen and (max-width: 480px){
+    .signin-wrapper .signin-container{
+        width: 60%;
+        
+    
+    
+    }
+    .signin-container h3{
+        font-size: 1rem;
+    }
+    
+}
+@media screen and (max-width: 320px){
+    .signin-wrapper .signin-container{
+        width: 80%;
+        
+    
+    
+    }
+    .signin-container h3{
+        font-size: 1rem;
+    }
+    
+}
