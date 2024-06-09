@@ -9,9 +9,12 @@ function Add() {
   const imgref=useRef()
   return (
     <div className='add-wrapper'>
+      <p style={{fontSize:'.8rem',fontWeight:'500'}}>Upload Image</p>
         <div className='img-uploader'>
+        
             <img src={Upload} alt='upload' onClick={()=>(imgref.current.click())}/>
             <input type='file' required hidden ref={imgref} id='img'/>
+            
         </div>
         <span className='add-item'>
           <label>Title</label>
