@@ -26,24 +26,21 @@ public class ItemsService {
             photoDetails.add(photoDetail);
 
         }
-        List<Bundle> bundles = new ArrayList<>();
-        for(Bundle bundle: itemRequest.getBundles() ){
-            Bundle bundle1 = Bundle.builder()
-                    .ramCapacity(bundle.getRamCapacity())
-                    .storageCapacity(bundle.getStorageCapacity())
-                    .price(bundle.getPrice())
-                    .build();
-            bundles.add(bundle1);
-        }
+        Features features = Features.builder()
+                .battery(itemRequest.getFeatures().getBattery())
+                .cpu(itemRequest.getFeatures().getCpu())
+                .ramRom(itemRequest.getFeatures().getRamRom())
+                .screen(itemRequest.getFeatures().getScreen())
+                .others(itemRequest.getFeatures().getOthers())
+                .sensor(itemRequest.getFeatures().getSensor())
+                .build();
         Items items = Items.builder()
-                .availability(itemRequest.isAvailability())
+                .availability(itemRequest.getAvailableAmount() !=0)
                 .brand(itemRequest.getBrand())
                 .category(itemRequest.getCategory())
-                .version(itemRequest.getVersion())
                 .shortDesc(itemRequest.getShortDesc())
-                .specification(itemRequest.getSpecification())
                 .photoDetails(photoDetails)
-                .bundles(bundles)
+                .features(features)
                 .build();
         itemsRepository.save(items);
     }
@@ -58,11 +55,11 @@ public class ItemsService {
                     .availability(items.isAvailability())
                     .brand(items.getBrand())
                     .category(items.getCategory())
-                    .version(items.getVersion())
                     .shortDesc(items.getShortDesc())
-                    .specification(items.getSpecification())
                     .photoDetails(items.getPhotoDetails())
-                    .bundles(items.getBundles())
+                    .title(items.getTitle())
+                    .features(items.getFeatures())
+                    .availableAmount(items.getAvailableAmount())
                     .build();
             itemsResponses.add(itemsResponse);
         }
@@ -73,35 +70,20 @@ public class ItemsService {
 
         Optional<Items> item = itemsRepository.findById(id);
         return item.map(items -> ItemsResponse.builder()
+                .id(items.getId())
                 .availability(items.isAvailability())
                 .brand(items.getBrand())
                 .category(items.getCategory())
-                .version(items.getVersion())
                 .shortDesc(items.getShortDesc())
-                .specification(items.getSpecification())
                 .photoDetails(items.getPhotoDetails())
-                .bundles(items.getBundles())
+                .title(items.getTitle())
+                .availableAmount(items.getAvailableAmount())
+                .features(items.getFeatures())
                 .build()).orElse(null);
     }
     public void updateItem(ItemRequest itemRequest, List<MultipartFile> photos,String id) throws IOException {
         Optional<Items> item = itemsRepository.findById(id);
         if(item.isPresent()){
-
-//            List<PhotoDetail> photoDetails = item.get().getPhotoDetails();
-
-//            for (int i = 0; i < photoDetails.size(); i++) {
-//
-//                String photoId = photoDetails.get(i).getId().trim();
-//
-//                for(int j=0; j< itemRequest.getPhotoId().size(); j++){
-//                    String pId =itemRequest.getPhotoId().get(j);
-//                    if (photoId.equals(pId)) {
-//                        photoDetails.get(i).setPhotoData();
-//                    }
-//                }
-//
-//
-//            }
 
             List<PhotoDetail> photoDetails = new ArrayList<>();
             for (MultipartFile photo : photos) {
@@ -114,25 +96,28 @@ public class ItemsService {
 
             }
 
-            List<Bundle> bundles = new ArrayList<>();
-            for(Bundle bundle: itemRequest.getBundles() ){
-                Bundle bundle1 = Bundle.builder()
-                        .ramCapacity(bundle.getRamCapacity())
-                        .storageCapacity(bundle.getStorageCapacity())
-                        .price(bundle.getPrice())
-                        .build();
-                bundles.add(bundle1);
+            if(itemRequest.getAvailableAmount() != 0){
+                item.get().setAvailability(true);
+                item.get().setAvailableAmount(itemRequest.getAvailableAmount());
             }
-
-            item.get().setAvailability(itemRequest.isAvailability());
-            item.get().setBundles(bundles);
-            item.get().setBrand(itemRequest.getBrand());
-            item.get().setCategory(itemRequest.getCategory());
-            item.get().setPhotoDetails(photoDetails);
-            item.get().setShortDesc(itemRequest.getShortDesc());
-            item.get().setSpecification(itemRequest.getSpecification());
-            item.get().setVersion(itemRequest.getVersion());
-
+            if(itemRequest.getBrand() != null){
+                item.get().setBrand(itemRequest.getBrand());
+            }
+            if(itemRequest.getCategory() != null){
+                item.get().setCategory(itemRequest.getCategory());
+            }
+            if(photoDetails != null){
+                item.get().setPhotoDetails(photoDetails);
+            }
+            if(itemRequest.getShortDesc() !=  null){
+                item.get().setShortDesc(itemRequest.getShortDesc());
+            }
+            if(itemRequest.getTitle() != null){
+                item.get().setTitle(itemRequest.getTitle());
+            }
+            if(itemRequest.getFeatures() != null){
+                item.get().setFeatures(itemRequest.getFeatures());
+            }
             itemsRepository.save(item.get());
         }
 

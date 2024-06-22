@@ -41,26 +41,31 @@ public class ItemController {
     public ResponseEntity<?> getItem(@PathVariable String id){
 
        try{
-           return ResponseEntity.ok(itemsService.getProduct(id));
+           if(itemsService.getProduct(id) != null){
+               return ResponseEntity.ok(itemsService.getProduct(id));
+           }else{
+               return ResponseEntity.notFound().build();
+           }
+
        }catch (Exception e){
            return ResponseEntity.badRequest().body(e);
        }
     }
-    @PutMapping("/update/item/{id}")
+
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> updateItem(@PathVariable String id,
                                         @RequestPart("itemsRequest") String itemsRequest,
                                         @RequestPart("photos") List<MultipartFile> photos
                                         ) throws JsonProcessingException {
         ItemRequest itemRequest = objectMapper.readValue(itemsRequest, ItemRequest.class);
-
         try{
             itemsService.updateItem(itemRequest,photos,id);
-            return ResponseEntity.ok("");
+            return ResponseEntity.ok().build();
         }catch (IOException e) {
             return ResponseEntity.badRequest().body(e);
         }
-
     }
+
     @DeleteMapping("/delete/item/{id}")
     public  ResponseEntity<?>  deleteItem(@PathVariable String id){
         try{
