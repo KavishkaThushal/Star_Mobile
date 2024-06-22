@@ -26,9 +26,9 @@ public class AppointmentController {
         }
     }
 
-    @GetMapping("/getUserAppointments/{user_name}")
-    public ResponseEntity<List<AppointmentResponse>> getUserAppointment(@PathVariable String user_name){
-        List<AppointmentResponse> appointmentResponses = appointmentService.getAppointment(user_name.toLowerCase().trim().toString());
+    @GetMapping("/getUserAppointments/{id}")
+    public ResponseEntity<List<AppointmentResponse>> getUserAppointment(@PathVariable String id){
+        List<AppointmentResponse> appointmentResponses = appointmentService.getAppointment(id);
         if(appointmentResponses.isEmpty()){
             return (ResponseEntity<List<AppointmentResponse>>) ResponseEntity.status(HttpStatus.NOT_FOUND);
         }else{

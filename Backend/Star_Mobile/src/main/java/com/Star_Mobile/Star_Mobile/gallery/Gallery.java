@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Builder
 @Document(collection = "Gallery")
-public class GalleryDTO {
+public class Gallery {
     @Id
     private String id;
     private String userId;
