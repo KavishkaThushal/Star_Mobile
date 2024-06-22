@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -22,9 +23,8 @@ public class Appointment {
     private String email;
     private String phone;
     private String issue;
-    private Date date;
-    private boolean newJob;
-    private boolean jobStatus;
-    private  String feedback;
+    private LocalDate date;
+    private String jobStatus;
+    private String feedback;
 
 }

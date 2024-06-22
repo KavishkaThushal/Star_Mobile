@@ -10,6 +10,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -32,6 +34,25 @@ public class AuthenticationService {
                 .token(jwtToken)
                 .build();
     }
+
+        public void registerAdmin(RegisterRequest request) {
+            Optional<User> userAdmin = userRepository.findByRole(Role.ADMIN);
+            if(userAdmin.isEmpty()){
+                var user = User.builder()
+                        .fullName(request.getFullName())
+                        .email(request.getEmail().trim().toLowerCase())
+                        .userName(request.getEmail().trim().toLowerCase())
+                        .role(Role.ADMIN)
+                        .password(passwordEncoder.encode(request.getPassword()))
+                        .build();
+                userRepository.save(user);
+                var jwtToken = jwtService.generateToken(user);
+                AuthenticationResponse.builder()
+                        .token(jwtToken)
+                        .build();
+            }
+
+        }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
