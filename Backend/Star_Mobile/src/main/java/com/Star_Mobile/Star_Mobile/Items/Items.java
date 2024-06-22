@@ -16,18 +16,18 @@ import java.util.List;
 @Data
 @Builder
 @Document(collection = "Products")
-public class Items {
+public class  Items {
 
     @Id
     private String id;
+    private String title;
+    private Integer availableAmount;
     private String brand;
     private String category;
-    private String version;
     private boolean availability;
     private String shortDesc;
-    private String specification;
     @Field("photoDetails")
     private List<PhotoDetail> photoDetails = new ArrayList<>();
-    @Field("bundles")
-    private  List<Bundle> bundles = new ArrayList<>();
+    @Field("features")
+    private  Features features;
 }

@@ -14,12 +14,13 @@ import java.util.List;
 @Builder
 public class ItemsResponse {
     private String id;
+    private String title;
+    private Integer availableAmount;
     private String brand;
     private String category;
-    private String version;
     private boolean availability;
     private String shortDesc;
-    private String specification;
+    private  Features features;
     private List<PhotoDetail> photoDetails = new ArrayList<>();
-    private  List<Bundle> bundles = new ArrayList<>();
+
 }

@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class Bundle {
-    private String storageCapacity;
-    private String ramCapacity;
-    private String price;
+public class Features{
+    private String cpu;
+    private String screen;
+    private String battery;
+    private String sensor;
+    private String ramRom;
+    private String others;
 }
