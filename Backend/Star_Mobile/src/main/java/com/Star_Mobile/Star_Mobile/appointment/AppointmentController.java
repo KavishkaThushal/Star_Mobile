@@ -43,7 +43,7 @@ public class AppointmentController {
     ) {
 
         try {
-            if (appointmentService.removeAppointment(id)) {
+             if (appointmentService.removeAppointment(id)) {
                 return ResponseEntity.ok("Successful");
             } else {
                 return ResponseEntity.badRequest().body("Unsuccessful");
