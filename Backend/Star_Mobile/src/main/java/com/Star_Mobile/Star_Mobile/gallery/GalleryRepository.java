@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
-public interface GalleryRepository extends MongoRepository<GalleryDTO,String> {
+public interface GalleryRepository extends MongoRepository<Gallery,String> {
 
-    Optional<GalleryDTO> findById(String id);
+    Optional<Gallery> findById(String id);
 }

@@ -1,5 +1,6 @@
 package com.Star_Mobile.Star_Mobile.config;
 
+import com.Star_Mobile.Star_Mobile.User.Role;
 import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -29,13 +30,15 @@ public class SecurityConfiguration {
                 .requestMatchers("api/v1/auth/**")
                 .permitAll()
                 .requestMatchers("/api/v1/appointment/**")
-                .permitAll()
+                .hasAuthority(String.valueOf(Role.USER))
+                .requestMatchers("/api/v1/admin/**")
+                .hasAuthority(String.valueOf(Role.ADMIN))
                 .requestMatchers("/api/v1/otp/**")
                 .permitAll()
                 .requestMatchers("/api/v1/gallery/**")
                 .permitAll()
                 .requestMatchers("api/v1/items/**")
-                .permitAll()
+                .hasAuthority(String.valueOf(Role.ADMIN))
                 .anyRequest()
                 .authenticated()
                 .and()

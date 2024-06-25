@@ -3,7 +3,6 @@ package com.Star_Mobile.Star_Mobile.gallery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import com.Star_Mobile.Star_Mobile.gallery.PhotoResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ public class GalleryService {
     public void savePhotos(MultipartFile photo, String userId) {
 
         try {
-            GalleryDTO gPhoto = new GalleryDTO();
+            Gallery gPhoto = new Gallery();
             gPhoto.setName(photo.getOriginalFilename());
             gPhoto.setData(photo.getBytes());
             gPhoto.setPhotoType(photo.getContentType());
@@ -43,7 +42,7 @@ public class GalleryService {
 
     public boolean updatePhoto(MultipartFile photo, String id){
         try {
-            Optional<GalleryDTO> gPhoto = galleryRepository.findById(id);
+            Optional<Gallery> gPhoto = galleryRepository.findById(id);
             if(gPhoto.isPresent()){
                 gPhoto.get().setName(photo.getOriginalFilename());
                 gPhoto.get().setData(photo.getBytes());
@@ -58,9 +57,9 @@ public class GalleryService {
         return false;
     }
     public List<PhotoResponse> getPhotos() {
-        List<GalleryDTO> Photo = galleryRepository.findAll();
+        List<Gallery> Photo = galleryRepository.findAll();
         List<PhotoResponse> response = new ArrayList<>();
-        for(GalleryDTO gPhoto : Photo){
+        for(Gallery gPhoto : Photo){
             PhotoResponse PhotoResponses = PhotoResponse.builder()
                     .data(gPhoto .getData())
                     .name(gPhoto.getName())

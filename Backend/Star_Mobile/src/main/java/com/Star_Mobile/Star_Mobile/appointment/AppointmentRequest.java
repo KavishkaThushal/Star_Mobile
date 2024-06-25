@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Data
 @Builder
@@ -13,9 +14,9 @@ import java.util.Date;
 public class AppointmentRequest {
     private String firstName;
     private String lastName;
-    private String userName;
+    private String id;
     private String email;
     private String phone;
     private String issue;
-    private Date date;
+    private LocalDate date;
 }
