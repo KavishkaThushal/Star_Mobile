@@ -52,14 +52,14 @@ export default function Header() {
 
             <div className={scrollY>100 ? 'active-header-navigation-section' : 'header-navigation-section'}>
                 <Link to='/' className='header-nav-link'>Home</Link>
-                <Link to='/' className='header-nav-link'>AboutUs</Link>
-                <Link to='/' className='header-nav-link'>Services</Link>
-                <Link to='/' className='header-nav-link'>Gallery</Link>
-                <Link to='/' className='header-nav-link'>Store</Link>
-                <Link to='/' className='header-nav-link'>Contact</Link>
-                <Link to='/' className='header-nav-link'>Appointment</Link>
-                <Link to='/' className='header-nav-link authenticate-link' id='authenticate-link'>Register</Link>
-                <Link to='/' className='header-nav-link authenticate-link'>Login</Link>
+                <Link to='/aboutus' className='header-nav-link'>AboutUs</Link>
+                <Link to='/services' className='header-nav-link'>Services</Link>
+                <Link to='/gallery' className='header-nav-link'>Gallery</Link>
+                <Link to='/store' className='header-nav-link'>Store</Link>
+                <Link to='/contactus' className='header-nav-link'>Contact</Link>
+                <Link to='/appointment' className='header-nav-link'>Appointment</Link>
+                <Link to='/register' className='header-nav-link authenticate-link' id='authenticate-link'>Register</Link>
+                <Link to='/login' className='header-nav-link authenticate-link'>Login</Link>
             </div>
         </div>
     )
