@@ -1,0 +1,40 @@
+.status-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.status-right-border{
+    border-right:1px solid #ccc; ;
+}
+
+.status-wrapper-card-title{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr .5fr 1.5fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+    font-size: .8rem;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid #ccc;
+
+}
+
+@media screen and (max-width: 768px){
+    .status-wrapper-card-title{
+        font-size: .7rem;
+    }
+    
+}
+@media screen and (max-width: 500px){
+    .status-wrapper{
+        
+        margin: 3rem auto;
+    }
+    .status-wrapper-card-title{
+        display: none;
+    }
+    
+}

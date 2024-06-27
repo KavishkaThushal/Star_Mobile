@@ -1,0 +1,17 @@
+.list-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 2rem auto;
+}
+.list-wrapper .list-title{
+    display: grid;
+    grid-template-columns: 1.5fr .8fr 1.5fr .7fr 1fr .7fr .8fr ;
+    gap: 1rem;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+}
+.list-item-title{
+    border-right:1px solid #e0e0e0;
+}
