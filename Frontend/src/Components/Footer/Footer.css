@@ -1,0 +1,116 @@
+div.footer{
+    margin-top: 6.875rem;
+    width: 100vw;
+    background-color: #2E4C66;
+}
+div.footer-upper-section{
+    padding: 2.5rem 4.25rem; 
+    display:flex;
+}
+div.upper-section-left-part{
+    /* background-color: aqua; */
+    max-width: 60%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: space-between;
+}
+div.left-part-about-part{
+    margin-left: 3.125rem; 
+    display: flex;
+    flex-direction: column;
+}
+div.footer-social-media-section{
+    padding: 1.25rem 0rem; 
+    color: #00000080;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+div.footer-social-media-icon-container{
+    padding: 0.625rem 0.75rem;
+    background-color: #02BBA3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-social-media-icon{
+
+}
+div.left-part-about-part p{
+    margin: 0;
+}
+p.about-part-title{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.125rem; /* 1.8rem / 1.6 */
+    font-weight: 500;
+    line-height: 1.2;
+    color: #FFF;
+    text-transform: uppercase;
+}
+p.about-part-subtitile{
+    padding-top: 0.625rem; 
+    font-family: "Poppins", sans-serif;
+    font-size: 0.875rem; 
+    font-weight: 400;
+    line-height: 1.2;
+    color: #FFF; 
+}
+p.recent-post{
+    border-bottom: 0.125rem solid #02BBA3; 
+}
+p.about-part-text{
+    padding-top: 0.625rem; 
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem; 
+    font-weight: 500;
+    line-height: 1.2;
+    color: #000000;
+}
+div.upper-section-right-part{
+    /* background-color: aqua; */
+    margin-left: 6.25rem; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+div.right-part-contact-details{
+    margin-left: 1.875rem; 
+    display: flex;
+    flex-direction: column;
+}
+div.right-part-contact-details p{
+    margin: 0;
+}
+p.rght-part-contact-number{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8125rem; 
+    color:#02BBA3;
+}
+p.rght-part-contact-description{
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color:#FFFFFF;
+}
+div.footer-down-section{
+    margin-top: 0rem;
+    margin-left: 1.25rem; 
+    margin-right: 3.125rem; 
+    padding: 0.9375rem 4.375rem; 
+    border-top: 0.125rem solid #02BBA3; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.footer-nav-link{
+    margin: 0 ;
+    padding: 0rem 0.625rem; 
+    color:#02BBA3;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1rem; 
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1;
+    border-right: 0.125rem solid #02BBA3; 
+}
