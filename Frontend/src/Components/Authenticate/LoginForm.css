@@ -1,0 +1,105 @@
+div.authenticate-form-screen {
+    background: url('./img//loginbg.png') no-repeat center;
+    background-size: cover;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.authenticate-form-container {
+    display: flex;
+}
+
+div.authenticate-form {
+    padding: 1.875rem 1.875rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(46, 76, 102, 0.439);
+}
+
+div.authenticate-form h2 {
+    margin: 0;
+    margin-top: 1.25rem; 
+    padding: 0;
+    font-size: 1.25rem; 
+    font-weight: 600;
+    color: white;
+    line-height: 1.75rem; 
+}
+
+div.authenticate-form p {
+    margin: 0;
+    padding: 0.25rem 0rem 2.5rem 0rem; 
+    font-size: 0.75rem; 
+    font-weight: 600;
+    color: #908E8E;
+    line-height: 1.125rem; 
+}
+
+div.authenticate-form-user-input {
+    margin-bottom: 0.9375rem; 
+    display: flex;
+    flex-direction: column;
+}
+
+div.authenticate-form-user-input label {
+    margin: 0;
+    padding-bottom: 0.4375rem; 
+    font-size: 0.6875rem; 
+    font-weight: 600;
+    color: #fff;
+    line-height: 0.9375rem; 
+}
+
+div.authenticate-form-user-input input {
+    padding: 0.425rem 0.9375rem; 
+    min-width: 20.5rem; 
+    outline: none;
+}
+
+div.authenticate-form-user-input input:focus {
+    outline: 0.125rem solid #02BBA3; 
+}
+
+div.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+div.password-input-container input {
+    flex-grow: 1;
+    padding-right: 0.9375rem; 
+}
+
+span.toggle-password {
+    position: absolute;
+    right: 0.625rem;
+    cursor: pointer;
+}
+
+span.toggle-password .eye-icon {
+    color: #908E8E;
+}
+
+div.authenticate-form button {
+    margin: 1.25rem 0rem; 
+    padding: 0.625rem 2.5rem; 
+    font-size: 0.9375rem; 
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.375rem; 
+    background-color: #02BBA3;
+    border: none;
+    cursor: pointer;
+}
+
+div.authenticate-form-image {
+    width: 24.8125rem; 
+    height: auto;
+    background: url('img/form_img.png') no-repeat center;
+    background-size: cover;
+}
