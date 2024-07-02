@@ -1,8 +1,11 @@
 import React from 'react'
+import SignupForm from '../../Components/Authenticate/SignupForm'
 
 function Register() {
   return (
-    <div>Register</div>
+    <div>
+      <SignupForm></SignupForm>
+    </div>
   )
 }
 
