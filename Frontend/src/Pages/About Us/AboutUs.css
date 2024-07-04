@@ -93,7 +93,7 @@
   
   .technicians {
     display: flex;
-    background: #b47373;
+    gap: 3rem;
     justify-content: center;
   }
   
