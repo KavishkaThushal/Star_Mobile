@@ -1,0 +1,128 @@
+.about-us {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header-section {
+    background-image: url('/src/assets/images/aboutus-background-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    padding: 100px 0; /* Adjust padding to control header height */
+    text-align: center;
+    position: relative;
+  }
+  
+  .header-section h1 {
+    color: white;
+    font-size: 48px;
+  }
+  
+  .intro-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .intro-image img {
+    max-width: 100%;
+    height: auto;
+    margin: 50px;
+  }
+  
+  .intro-text {
+    flex: 1;
+    margin: 50px;
+  }
+  
+  .intro-text h2 {
+    font-size: 32px;
+  }
+  
+  .intro-text p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .intro-text button {
+    background-color: #02BBA3;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .highlights-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #34495e;
+    color: white;
+  }
+  
+  .highlight {
+    flex: 1 1 30%;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .highlight h3 {
+    font-size: 24px;
+  }
+  
+  .highlight p {
+    font-size: 14px;
+  }
+  
+  .technicians-section {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .technicians-section h2 {
+    font-size: 32px;
+  }
+  
+  .technicians-section p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .technicians {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .technician {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .technician img {
+    max-width: 150px;
+    height: auto;
+    padding-right:20px ;
+  }
+  
+  .technician h4 {
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .intro-section {
+      flex-direction: column;
+    }
+    
+    .intro-text {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+    
+    .highlight {
+      flex: 1 1 100%;
+    }
+  }
+  
