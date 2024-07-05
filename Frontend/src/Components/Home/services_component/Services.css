@@ -1,0 +1,90 @@
+div.home-services {
+    padding: 5rem 7.5rem; /* 8rem / 1.6 and 12rem / 1.6 */
+    padding-bottom: 2.5rem; /* 4rem / 1.6 */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+div.home-services-description {
+    /* background-color: #02BBA3; */
+    display: flex;
+    flex-direction: column;
+}
+p.home-services-title {
+    margin: 0;
+    margin-bottom: 0.625rem; /* 1rem / 1.6 */
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem; /* 4rem / 1.6 */
+    text-transform: uppercase;
+    line-height: 1;
+}
+div.home-service-title-line {
+    /* margin: 0 auto; */
+    width: 20%;
+    border-bottom: 0.1875rem solid #02BBA3; /* 0.3rem / 1.6 */
+}
+p.home-services-txt {
+    color: #B5B0B0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 1.6rem / 1.6 */
+    line-height: 1.2;
+}
+div.home-services-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+div.home-services-left-type {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+div.home-service {
+    padding: 1.875rem 0rem; /* 3rem / 1.6 */
+    display: flex;
+}
+img.home-service-img {
+    width: 3.125rem; /* 5rem / 1.6 */
+}
+p.home-service-description {
+    padding: 0 0.625rem; /* 1rem / 1.6 */
+    padding-right: 1.875rem; /* 3rem / 1.6 */
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 1.6rem / 1.6 */
+    line-height: 1.2;
+}
+div.home-services-description-btns {
+    padding: 1.25rem 0rem; /* 2rem / 1.6 */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+button.home-service-btn {
+    padding: 0.6875rem 0.625rem; /* 1.1rem / 1.6 and 1rem / 1.6 */
+    width: 12.5rem; /* 20rem / 1.6 */
+    text-transform: uppercase;
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1rem; /* 1.6rem / 1.6 */
+    background-color: #02BBA3;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button.diactive-btn {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 0.125rem solid #000000; /* 0.2rem / 1.6 */
+}
+div.home-service-image-slider {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+img.service-image-slider {
+    width: 24.37vw;
+}
