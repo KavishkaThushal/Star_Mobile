@@ -21,12 +21,13 @@ export default function Header() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [scrollY]);
 
     return (
-        <div className='header'>
+       scrollY < 100?
+       <div className='header'>
 
-            <div className='header-contact-section' style={scrollY>100?{display:'none'}:{display:'flex'}}>
+            <div className='header-contact-section' id='header-contact-section'>
                 <div className='header-contact'>
                     <HiMiniClock size={30} color='#2E4C66' className='header-contact-icon' />
                     <div className='header-contact-details'>
@@ -50,7 +51,20 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className={scrollY>100 ? 'active-header-navigation-section' : 'header-navigation-section'}>
+            <div className='header-navigation-section'>
+                <Link to='/' className='header-nav-link'>Home</Link>
+                <Link to='/aboutus' className='header-nav-link'>AboutUs</Link>
+                <Link to='/services' className='header-nav-link'>Services</Link>
+                <Link to='/gallery' className='header-nav-link'>Gallery</Link>
+                <Link to='/store' className='header-nav-link'>Store</Link>
+                <Link to='/contactus' className='header-nav-link'>Contact</Link>
+                <Link to='/appointment' className='header-nav-link'>Appointment</Link>
+                <Link to='/register' className='header-nav-link authenticate-link' id='authenticate-link'>Register</Link>
+                <Link to='/login' className='header-nav-link authenticate-link'>Login</Link>
+            </div>
+        </div>:
+         <div className='header'>
+             <div className='active-header-navigation-section'>
                 <Link to='/' className='header-nav-link'>Home</Link>
                 <Link to='/aboutus' className='header-nav-link'>AboutUs</Link>
                 <Link to='/services' className='header-nav-link'>Services</Link>
@@ -62,5 +76,6 @@ export default function Header() {
                 <Link to='/login' className='header-nav-link authenticate-link'>Login</Link>
             </div>
         </div>
+
     )
 }
