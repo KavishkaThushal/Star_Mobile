@@ -71,6 +71,9 @@ div.active-header-navigation-section .header-nav-link{
     text-transform: uppercase;
     text-decoration: none;
 }
+div.active-header-navigation-section .header-nav-link:hover{
+    color: #02BBA3;
+}
 
 .header-nav-link {
     margin-left: 1.5rem;
@@ -80,6 +83,10 @@ div.active-header-navigation-section .header-nav-link{
     font-size: 0.95rem;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+.header-nav-link:hover {
+    color: #02BBA3;
 }
 
 .authenticate-link {
