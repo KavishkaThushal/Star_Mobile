@@ -12,6 +12,7 @@ import Store from './Pages/Store/Store'
 import Item from './Pages/Item/Item'
 
 import Appointment from './Components/Appointment/Appointment'
+import {ToastContainer} from "react-toastify";
 
 
 function App() {
@@ -36,6 +37,16 @@ function App() {
         </Route>
       </Route>
      </Routes>
+
+     <ToastContainer
+         position="top-right"
+         autoClose={3000}
+         hideProgressBar={false}
+         closeOnClick
+          pauseOnHover
+         draggable
+         theme="colored"
+     />
     </BrowserRouter>
     </MantineProvider>
   )

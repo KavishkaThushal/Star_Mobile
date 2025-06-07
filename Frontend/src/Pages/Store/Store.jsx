@@ -62,11 +62,7 @@ function Store() {
                 </div>
 
                 <hr/>
-         
-        
 
-
-                
         </div>
         <div className='side-menu'>
            
