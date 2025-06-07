@@ -8,6 +8,8 @@ import 'react-quill/dist/quill.snow.css';
 import Upload from '../../assets/upload.gif';
 import api from '../../config/axiosInterceptor.js';
 
+const Category = ['mobile', 'earphones', 'smartWatch', 'others'];
+const Brand = ['Redmi', 'Samsung', 'Infinix', 'Apple', 'others'];
 const FeaturesList = ['CPU', 'Screen', 'RAM_ROM', 'Camera', 'Battery', 'OS', 'Sensor', 'Other'];
 
 function AddEditProduct() {
@@ -19,18 +21,15 @@ function AddEditProduct() {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [imageRemoved, setImageRemoved] = useState(false);
 
-  const [formData, setFormData] = useState({
-    name: '',
-    price: '',
-    stock: '',
-    description: '<p></p>',
-    brand: 'YourBrand',
-    category: 'mobile',
-    variants: 1,
-    features: FeaturesList.reduce((acc, feature) => ({ ...acc, [feature]: '' }), {}),
-  });
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [stock, setStock] = useState('');
+  const [description, setDescription] = useState('<p></p>');
+  const [brand, setBrand] = useState('Redmi');
+  const [category, setCategory] = useState('mobile');
+  const [variants, setVariants] = useState(1);
+  const [features, setFeatures] = useState({});
 
-  // Fetch existing product
   useEffect(() => {
     if (!productId) return;
 
@@ -39,23 +38,30 @@ function AddEditProduct() {
         const res = await api.get(`store/${productId}`);
         const product = res.data;
 
-        setFormData({
-          name: product.name || '',
-          price: product.price || '',
-          stock: product.stock || '',
-          description: product.description || '<p></p>',
-          brand: product.brand || 'YourBrand',
-          category: product.category || 'mobile',
-          variants: product.variants || 1,
-          features: FeaturesList.reduce((acc, feature, i) => {
-            acc[feature] = product.features?.[i] || '';
-            return acc;
-          }, {}),
-        });
+        setName(product.name || '');
+        setPrice(product.price || '');
+        setStock(product.stock || '');
+        setDescription(product.description || '<p></p>');
+        setBrand(product.brand || 'Redmi');
+        setCategory(product.category || 'mobile');
+        setVariants(product.variants || 1);
 
-        if (product.imageUrl || product.image ) {
+        if (product.features && Array.isArray(product.features)) {
+          setFeatures(product.features[0] || {});
+        } else if (typeof product.features === 'object') {
+          setFeatures(product.features);
+        } else {
+          setFeatures(
+              FeaturesList.reduce((acc, key) => {
+                acc[key] = '';
+                return acc;
+              }, {})
+          );
+        }
+
+
+        if (product.imageUrl || product.image) {
           setPreviewUrl(product.imageUrl || product.image || null);
-
         }
       } catch (err) {
         toast.error('Failed to fetch product data');
@@ -66,7 +72,6 @@ function AddEditProduct() {
     fetchProduct();
   }, [productId]);
 
-  // Update preview when a new local file is uploaded
   useEffect(() => {
     if (!imageFile) return;
     const url = URL.createObjectURL(imageFile);
@@ -74,12 +79,7 @@ function AddEditProduct() {
     return () => URL.revokeObjectURL(url);
   }, [imageFile]);
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
-
-  const removeImage = () => {
+  const handleRemoveImage = () => {
     setImageFile(null);
     setPreviewUrl(null);
     setImageRemoved(true);
@@ -87,14 +87,15 @@ function AddEditProduct() {
   };
 
   const validateForm = () => {
-    if (!formData.name.trim()) return toast.error('Title is required') || false;
-    if (!formData.price || isNaN(formData.price) || Number(formData.price) <= 0) return toast.error('Price must be a positive number') || false;
-    if (!formData.stock || isNaN(formData.stock) || Number(formData.stock) < 0) return toast.error('Amount must be zero or a positive number') || false;
-    if (!formData.description || formData.description === '<p></p>') return toast.error('Description is required') || false;
+    if (!name.trim()) return toast.error('Title is required') || false;
+    if (!price || isNaN(price) || Number(price) <= 0) return toast.error('Price must be a positive number') || false;
+    if (!stock || isNaN(stock) || Number(stock) < 0) return toast.error('Amount must be zero or a positive number') || false;
+    if (!description || description === '<p></p>') return toast.error('Description is required') || false;
     if (!previewUrl && !imageFile) return toast.error('Image is required') || false;
-    for (const feature of FeaturesList) {
-      if (feature !== 'Other' && !formData.features[feature]?.trim()) {
-        toast.error(`Feature "${feature}" is required`);
+
+    for (const key of FeaturesList) {
+      if (key !== 'Other' && (!features[key] || !features[key].trim())) {
+        toast.error(`Feature "${key}" is required`);
         return false;
       }
     }
@@ -130,14 +131,14 @@ function AddEditProduct() {
       }
 
       const payload = {
-        name: formData.name,
-        price: formData.price,
-        stock: formData.stock,
-        description: formData.description,
-        brand: formData.brand,
-        category: formData.category,
-        variants: formData.variants,
-        features: Object.values(formData.features),
+        name,
+        price,
+        stock,
+        description,
+        brand,
+        category,
+        variants,
+        features,
       };
 
       if (!imageRemoved && imageUrl) {
@@ -148,14 +149,13 @@ function AddEditProduct() {
       const method = productId ? 'put' : 'post';
 
       const res = await api[method](url, payload);
-
-      if(res.status === 200){
+      console.log(res)
+      if (res.status === 201 || res.status === 200) {
         toast.success(productId ? 'Product updated!' : 'Product created!');
         setTimeout(() => {
           navigate('/list');
         }, 2000);
       }
-
     } catch (err) {
       toast.error('Failed to submit product');
       console.error(err);
@@ -163,53 +163,73 @@ function AddEditProduct() {
   };
 
   return (
-      <div className="add-wrapper" style={{ padding: '20px', maxWidth: '600px', margin: 'auto' }}>
+      <div
+          className="add-wrapper"
+          style={{
+            maxWidth: '600px',
+            margin: 'auto',
+            padding: '20px',
+            fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+          }}
+      >
         <ToastContainer />
-        <p style={{ fontSize: '.9rem', fontWeight: '600' }}>Upload Image</p>
+        <h2 style={{ marginBottom: '20px', textAlign: 'center' }}>
+          {productId ? 'Edit Product' : 'Add Product'}
+        </h2>
+
+        <p style={{ fontWeight: '600', marginBottom: '8px' }}>Upload Image</p>
         <div
             style={{
               position: 'relative',
               width: '200px',
               height: '200px',
-              border: '1px dashed #ccc',
+              border: '2px dashed #aaa',
               marginBottom: '20px',
               cursor: 'pointer',
+              borderRadius: '8px',
               display: 'flex',
-              alignItems: 'center',
               justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#fafafa',
+              overflow: 'hidden',
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}
             onClick={() => imgRef.current.click()}
         >
           {previewUrl ? (
-              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                <img src={previewUrl} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <span
+              <>
+                <img
+                    src={previewUrl}
+                    alt="Preview"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      removeImage();
+                      handleRemoveImage();
                     }}
                     title="Remove image"
                     style={{
                       position: 'absolute',
-                      top: '2px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
+                      top: '6px',
+                      right: '6px',
+                      backgroundColor: 'rgba(255, 0, 0, 0.7)',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '50%',
                       width: '28px',
                       height: '28px',
-                      backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                      color: '#fff',
-                      borderRadius: '50%',
-                      fontSize: '20px',
+                      fontSize: '18px',
                       fontWeight: 'bold',
-                      textAlign: 'center',
-                      lineHeight: '28px',
                       cursor: 'pointer',
-                      zIndex: 10,
+                      lineHeight: '28px',
+                      textAlign: 'center',
                     }}
                 >
-              &times;
-            </span>
-              </div>
+                  &times;
+                </button>
+              </>
           ) : (
               <img src={Upload} alt="upload" style={{ width: '60px', opacity: 0.6 }} />
           )}
@@ -231,97 +251,209 @@ function AddEditProduct() {
           />
         </div>
 
-        <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="name">Title</label>
-          <input
-              type="text"
-              placeholder="Title"
-              required
-              id="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              style={{ width: '100%', padding: '6px', marginTop: '4px' }}
-          />
-        </div>
+        <label htmlFor="name" style={{ fontWeight: '600' }}>
+          Title
+        </label>
+        <input
+            type="text"
+            placeholder="Title"
+            required
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px',
+              marginBottom: '15px',
+              borderRadius: '6px',
+              border: '1px solid #ccc',
+              fontSize: '16px',
+            }}
+        />
 
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '15px', marginBottom: '15px' }}>
           <div style={{ flex: 1 }}>
-            <label htmlFor="price">Price (RS)</label>
+            <label htmlFor="price" style={{ fontWeight: '600' }}>
+              Price (RS)
+            </label>
             <input
-                type="text"
+                type="number"
                 placeholder="Price"
                 required
                 id="price"
-                value={formData.price}
-                onChange={handleInputChange}
-                style={{ width: '100%', padding: '6px', marginTop: '4px' }}
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  borderRadius: '6px',
+                  border: '1px solid #ccc',
+                  fontSize: '16px',
+                }}
             />
           </div>
 
           <div style={{ flex: 1 }}>
-            <label htmlFor="stock">Stock</label>
+            <label htmlFor="stock" style={{ fontWeight: '600' }}>
+              Stock
+            </label>
             <input
                 type="number"
                 placeholder="Stock"
                 required
                 id="stock"
-                value={formData.stock}
-                onChange={handleInputChange}
-                style={{ width: '100%', padding: '6px', marginTop: '4px' }}
+                value={stock}
+                onChange={(e) => setStock(e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  borderRadius: '6px',
+                  border: '1px solid #ccc',
+                  fontSize: '16px',
+                }}
             />
           </div>
         </div>
 
-        <h3 style={{ marginTop: '20px' }}>Features</h3>
-        {FeaturesList.map((feature) => (
-            <div key={feature} style={{ marginBottom: '10px' }}>
-              <label htmlFor={feature}>{feature}</label>
-              {feature === 'Other' ? (
-                  <ReactQuill
-                      theme="snow"
-                      id={feature}
-                      value={formData.features[feature]}
-                      onChange={(value) =>
-                          setFormData((prev) => ({
-                            ...prev,
-                            features: { ...prev.features, [feature]: value },
-                          }))
-                      }
-                      style={{ marginTop: '4px' }}
-                  />
-              ) : (
-                  <input
-                      type="text"
-                      placeholder={feature}
-                      id={feature}
-                      value={formData.features[feature]}
-                      onChange={(e) => {
-                        const { id, value } = e.target;
-                        setFormData((prev) => ({
-                          ...prev,
-                          features: { ...prev.features, [id]: value },
-                        }));
-                      }}
-                      style={{ width: '100%', padding: '6px', marginTop: '4px' }}
-                  />
-              )}
-            </div>
-        ))}
+        {/* Category dropdown */}
+        <label htmlFor="category" style={{ fontWeight: '600' }}>
+          Category
+        </label>
+        <select
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px',
+              marginBottom: '15px',
+              borderRadius: '6px',
+              border: '1px solid #ccc',
+              fontSize: '16px',
+            }}
+        >
+          {Category.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </option>
+          ))}
+        </select>
 
-        <div style={{ marginTop: '20px' }}>
-          <label htmlFor="description">Description</label>
-          <ReactQuill
-              theme="snow"
-              value={formData.description}
-              onChange={(value) => setFormData((prev) => ({ ...prev, description: value }))}
-              style={{ marginTop: '4px' }}
-          />
+        {/* Brand dropdown */}
+        <label htmlFor="brand" style={{ fontWeight: '600' }}>
+          Brand
+        </label>
+        <select
+            id="brand"
+            value={brand}
+            onChange={(e) => setBrand(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px',
+              marginBottom: '15px',
+              borderRadius: '6px',
+              border: '1px solid #ccc',
+              fontSize: '16px',
+            }}
+        >
+          {Brand.map((b) => (
+              <option key={b} value={b}>
+                {b.charAt(0).toUpperCase() + b.slice(1)}
+              </option>
+          ))}
+        </select>
+
+        {/* Variants */}
+        <label htmlFor="variants" style={{ fontWeight: '600' }}>
+          Variants
+        </label>
+        <input
+            type="number"
+            id="variants"
+            min={1}
+            value={variants}
+            onChange={(e) => setVariants(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px',
+              marginBottom: '20px',
+              borderRadius: '6px',
+              border: '1px solid #ccc',
+              fontSize: '16px',
+            }}
+        />
+
+        {/* Features */}
+        <div
+            style={{
+              border: '1px solid #ddd',
+              padding: '75px',
+              borderRadius: '8px',
+              marginBottom: '55px',
+              backgroundColor: '#fafafa',
+            }}
+        >
+          <h3 style={{ marginBottom: '15px', textAlign: 'center', color: '#333' }}>
+            Features
+          </h3>
+          {FeaturesList.map((feature) => (
+              <div
+                  key={feature}
+                  style={{marginBottom: '12px'}}
+              >
+                <label
+                    htmlFor={`feature-${feature}`}
+                    style={{fontWeight: '600', textTransform: 'uppercase', display: 'block', marginBottom: '5px'}}
+                >
+                  {feature === 'Other' ? 'Other Feature' : feature}
+                </label>
+
+                {feature === 'Other' ? (
+                    <ReactQuill
+                        theme="snow"
+                        value={features[feature] || ''}
+                        onChange={(content) =>
+                            setFeatures((prev) => ({...prev, [feature]: content}))
+                        }
+                        style={{height: '150px', marginBottom: '10px'}}
+                    />
+                ) : (
+                    <input
+                        type="text"
+                        id={`feature-${feature}`}
+                        placeholder={`Enter ${feature}`}
+                        value={features[feature] || ''}
+                        onChange={(e) =>
+                            setFeatures((prev) => ({...prev, [feature]: e.target.value}))
+                        }
+                        style={{
+                          width: '100%',
+                          padding: '8px 12px',
+                          fontSize: '15px',
+                          borderRadius: '6px',
+                          border: '1px solid #ccc',
+                        }}
+                    />
+                )}
+              </div>
+          ))}
         </div>
+
+        {/* Description */}
+        <label htmlFor="description" style={{ fontWeight: '600', marginBottom: '8px', display: 'block' }}>
+          Description
+        </label>
+        <ReactQuill
+            theme="snow"
+            value={description}
+            onChange={setDescription}
+            style={{ height: '200px', marginBottom: '45px' }}
+        />
 
         <button
             onClick={handleSubmit}
         >
-          {productId ? 'Update Item' : 'Create Item'}
+          {productId ? 'Update Product' : 'Add Product'}
         </button>
       </div>
   );

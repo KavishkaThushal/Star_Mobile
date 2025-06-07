@@ -13,9 +13,16 @@ function ListCard({ FeaturesList, Name, ProductImg, Price, Amount, onDelete, id 
             <p className='list-name'>{Name}</p>
 
             <div className='list-item-features'>
-                {FeaturesList.map((item, i) => (
-                    <p key={i} className='feature'>{item}</p>
-                ))}
+                <div className='list-item-features'>
+                    {FeaturesList.map((featureObj, i) => (
+                        Object.entries(featureObj).map(([key, value]) => (
+                            <p key={`${i}-${key}`} className='feature'>
+                                <strong>{key}:</strong> {value}
+                            </p>
+                        ))
+                    ))}
+                </div>
+
             </div>
 
             <p className='list-amount'>{Amount}</p>
