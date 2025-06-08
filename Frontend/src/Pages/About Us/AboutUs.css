@@ -1,129 +1,190 @@
 .about-us {
-    font-family: Arial, sans-serif;
-  }
-  
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ---------- Header Section ---------- */
+.header-section {
+  height: 31.25rem;
+  background-image: url('/src/assets/images/aboutus-background-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-section h1 {
+  color: white;
+  font-size: 3rem;
+  margin: 0;
+}
+
+/* ---------- Intro Section ---------- */
+.intro-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5rem 2rem;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.intro-image img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.intro-text {
+  max-width: 500px;
+}
+
+.intro-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2e4c66;
+}
+
+.intro-text p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.intro-text button {
+  margin-top: 1rem;
+  background-color: #02BBA3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.intro-text button:hover {
+  background-color: #029e8e;
+}
+
+/* ---------- Highlights Section ---------- */
+.highlights-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #34495e;
+  color: white;
+  padding: 5rem 8rem;
+  gap: 3rem;
+}
+
+.highlight {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+.highlight h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlight p {
+  font-size: 0.95rem;
+}
+
+/* ---------- Technicians Section ---------- */
+.technicians-section {
+  text-align: center;
+  padding: 5rem 1rem;
+  padding-bottom: 8rem;
+  background-color: #f9f9f9;
+}
+
+.technicians-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  color: #2e4c66;
+}
+
+.technicians-section p {
+  max-width: 55vw;
+  margin: 0 auto 2rem auto;
+  font-size: 1rem;
+  color: #555;
+}
+
+.technicians {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.technician {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5%;
+  text-align: center;
+  width: 18vw;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.technician img {
+  width: 50%;
+  /*max-width: 150px;*/
+  border-radius: 50%;
+}
+
+.technician h4 {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.technician svg {
+  margin: 0.25rem;
+  color: #02BBA3;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ---------- Media Queries ---------- */
+@media (max-width: 768px) {
   .header-section {
-    background-image: url('/src/assets/images/aboutus-background-image.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: black;
-    padding: 100px 0; /* Adjust padding to control header height */
-    text-align: center;
-    position: relative;
+     height: 25rem;
   }
-  
+
   .header-section h1 {
-    color: white;
-    font-size: 48px;
+    font-size: 2.2rem;
   }
-  
-  .intro-section {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-  }
-  
-  .intro-image img {
-    max-width: 100%;
-    height: auto;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-  
+
   .intro-text {
-    flex: 1;
-    margin: 50px;
+    text-align: center;
   }
-  
+
   .intro-text h2 {
-    font-size: 32px;
+    font-size: 1.6rem;
   }
-  
-  .intro-text p {
-    font-size: 16px;
-    margin: 10px 0;
-  }
-  
-  .intro-text button {
-    background-color: #02BBA3;
-    color: white;
-    border: none;
-    border-radius: 0.25rem;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
+
   .highlights-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: #34495e;
-    color: white;
+    padding: 5rem 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
-  
-  .highlight {
-    flex: 1 1 30%;
-    text-align: center;
-    margin: 10px;
-  }
-  
-  .highlight h3 {
-    font-size: 24px;
-  }
-  
-  .highlight p {
-    font-size: 14px;
-  }
-  
-  .technicians-section {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .technicians-section h2 {
-    font-size: 32px;
-  }
-  
-  .technicians-section p {
-    font-size: 16px;
-    margin: 10px 0;
-  }
-  
+
   .technicians {
-    display: flex;
-    gap: 3rem;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .technician {
-    
-    margin: 10px;
+    width: 70%;
   }
-  
-  .technician img {
-    max-width: 150px;
-    height: auto;
-    padding-right:20px ;
-  }
-  
-  .technician h4 {
-    margin-top: 10px;
-  }
-  
-  @media (max-width: 768px) {
-    .intro-section {
-      flex-direction: column;
-    }
-    
-    .intro-text {
-      margin-left: 0;
-      margin-top: 20px;
-    }
-    
-    .highlight {
-      flex: 1 1 100%;
-    }
-  }
-  
+}
