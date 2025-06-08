@@ -13,7 +13,7 @@ div.authenticate-form-container {
 }
 
 div.authenticate-form {
-    padding: 1.675rem 1.875rem; 
+    padding: 1.675rem 1.875rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,40 +22,41 @@ div.authenticate-form {
 
 div.authenticate-form h2 {
     margin: 0;
-    margin-top: 1.45rem; 
+    margin-top: 1.45rem;
     padding: 0;
-    font-size: 1.05rem; 
+    font-size: 1.05rem;
     font-weight: 600;
     color: white;
-    line-height: 1.75rem; 
+    line-height: 1.75rem;
 }
 
 div.authenticate-form p {
     margin: 0;
-    padding: 0.25rem 0rem 1.5rem 0rem; 
-    font-size: 0.7rem; 
+    padding: 0.25rem 0rem 1.5rem 0rem;
+    font-size: 0.7rem;
     font-weight: 600;
+    text-align: center;
     color: #908E8E;
-    line-height: 1.125rem; 
+    line-height: 1.125rem;
 }
 
 div.authenticate-form-user-input {
-    margin-bottom: 0.9375rem; 
+    margin-bottom: 0.9375rem;
     display: flex;
     flex-direction: column;
 }
 
 div.authenticate-form-user-input label {
     margin: 0;
-    padding-bottom: 0.2375rem; 
-    font-size: 0.6875rem; 
+    padding-bottom: 0.2375rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: #fff;
-    line-height: 0.9375rem; 
+    line-height: 0.9375rem;
 }
 
 div.authenticate-form-user-input input {
-    padding: 0.4rem 0.9375rem; 
+    padding: 0.4rem 0.9375rem;
     min-width: 17.5rem;
     max-height: 2.18rem;
     font-size: 0.8rem;
@@ -63,7 +64,7 @@ div.authenticate-form-user-input input {
 }
 
 div.authenticate-form-user-input input:focus {
-    outline: 0.125rem solid #02BBA3; 
+    outline: 0.125rem solid #02BBA3;
 }
 
 div.password-input-container {
@@ -74,7 +75,7 @@ div.password-input-container {
 
 div.password-input-container input {
     flex-grow: 1;
-    padding-right: 0.9375rem; 
+    padding-right: 0.9375rem;
 }
 
 span.toggle-password {
@@ -88,20 +89,77 @@ span.toggle-password .eye-icon {
 }
 
 div.authenticate-form button {
-    margin: 1.25rem 0rem; 
-    padding: 0.625rem 2.5rem; 
-    font-size: 0.9375rem; 
+    margin: 1.25rem 0rem;
+    padding: 0.625rem 2.5rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: #fff;
-    line-height: 1.375rem; 
+    line-height: 1.375rem;
     background-color: #02BBA3;
     border: none;
     cursor: pointer;
 }
 
 div.authenticate-form-image {
-    width: 24.8125rem; 
+    width: 24.8125rem;
     height: auto;
     background: url('img/form_img.png') no-repeat center;
     background-size: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    div.authenticate-form-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    div.authenticate-form-container {
+        width: 70%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div.authenticate-form-image {
+        display: none;
+    }
+
+    div.authenticate-form {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    div.authenticate-form-user-input {
+        width: 80%;
+    }
+
+    div.authenticate-form-user-input input {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    div.authenticate-form-screen {
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    div.authenticate-form-container {
+        box-shadow: none;
+    }
+
+    div.authenticate-form h2 {
+        font-size: 1.25rem;
+    }
+
+    div.authenticate-form p {
+        font-size: 0.75rem;
+    }
+    div.authenticate-form-user-input{
+        width: 95%;
+    }
+    div.authenticate-form button {
+        width: 95%;
+    }
 }
