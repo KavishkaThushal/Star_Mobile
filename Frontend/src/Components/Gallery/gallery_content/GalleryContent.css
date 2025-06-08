@@ -1,7 +1,7 @@
 div.gallery-content{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div.gallery-content img{
@@ -9,4 +9,42 @@ div.gallery-content img{
     width: 80%;
     height: 80%;
     object-fit: cover;
+}
+
+div.gallery-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem; /* Padding replaces fixed margin for flexibility */
+}
+
+div.gallery-content img {
+    width: 100%;
+    max-width: 1000px; /* Optional max width for large screens */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px; /* Optional for rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional for better visuals */
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 768px) {
+    div.gallery-content {
+        padding: 2.5rem 1rem;
+    }
+
+    div.gallery-content img {
+        width: 95%;
+    }
+}
+
+/* Small devices (phones) */
+@media (max-width: 480px) {
+    div.gallery-content {
+        padding: 2rem 0.5rem;
+    }
+
+    div.gallery-content img {
+        width: 90%;
+    }
 }
