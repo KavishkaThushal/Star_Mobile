@@ -156,8 +156,9 @@
 
 /* ---------- Media Queries ---------- */
 @media (max-width: 768px) {
+
   .header-section {
-     height: 25rem;
+    height: 20rem;
   }
 
   .header-section h1 {

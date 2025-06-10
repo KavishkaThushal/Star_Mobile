@@ -7,7 +7,7 @@ div.gallery-content{
 div.gallery-content img{
     margin: 6.25rem 0rem;
     width: 80%;
-    height: 80%;
+    height: 31rem;
     object-fit: cover;
 }
 

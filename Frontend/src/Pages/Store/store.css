@@ -1,10 +1,10 @@
 
 
 .store-hero-container{
+    height: 31.25rem;
     background: url('../../assets/HeroImg.png');
     background-size: cover;
     background-position: center;
-    height: 50vh;
     object-fit: cover;
     display: flex;
     align-items: center;
@@ -170,7 +170,7 @@ font-weight: 500;
 
 @media screen and (max-width: 500px){
     .store-hero-container{
-        height: 30vh;
+        height: 20rem;
     }
     .store-hero-container h1{
         font-size: 1.2rem;
@@ -183,9 +183,6 @@ font-weight: 500;
 }
 
 @media screen and (max-width: 320px){
-    .store-hero-container{
-        height: 30vh;
-    }
     .store-hero-container h1{
         font-size: 1.2rem;
     }
