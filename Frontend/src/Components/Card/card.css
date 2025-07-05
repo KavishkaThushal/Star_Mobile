@@ -1,116 +1,167 @@
-.card-container{
+/* Card Styles */
+.card-container {
     display: flex;
     flex-direction: column;
-    gap: .2rem;
+    gap: 0.2rem;
     border-radius: 12px;
     border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 250px;
     height: max-content;
-    transition: all .3s;
-    width: 250px;
 }
 
-.card-container:hover{
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    
+.card-container:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.card-container .card-img-container{
+.card-container .card-img-container {
     width: 100%;
     height: 150px;
     overflow: hidden;
 }
-.card-img-container img{
+
+.card-img-container img {
     width: 100%;
     height: 100%;
-    object-fit:contain;
+    object-fit: contain;
 }
 
-
-.card-container .card-content{
+.card-container .card-content {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: .8rem
+    gap: 0.8rem;
 }
 
-.card-content .card-price{
+.card-content .card-price {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    font-size: .7rem;
     align-items: center;
+    font-size: 0.7rem;
+    flex-wrap: wrap;
 }
 
-.card-content .card-price p .price{
+.card-content .card-price p .price {
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-.card-content .card-price .stock{
+.card-content .card-price .stock {
     color: #afafaf;
 }
 
-.card-content .card-price .stock .stock-count{
+.card-content .card-price .stock .stock-count {
     color: red;
 }
 
-.card-content .card-details{
+.card-content .card-details {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
-.card-content .card-details h3{
+.card-content .card-details h3 {
     font-size: 1rem;
     font-weight: 500;
 }
 
-.card-content .card-details p{
-    font-size: .7rem;
+.card-content .card-details p {
+    font-size: 0.7rem;
     text-align: justify;
 }
 
-@media screen and (max-width: 768px){
-    .card-container{
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    .store-wrapper .store-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .store-wrapper .side-menu .filter-section {
+        font-size: 1rem;
+    }
+
+    .filter-section span input {
+        width: 15px;
+        height: 15px;
+    }
+
+    .filter-section span p {
+        font-size: 0.8rem;
+    }
+
+    .card-container {
         width: 240px;
     }
 
-    .card-container .card-img-container{
-        
+    .card-container .card-img-container {
         height: 100px;
-        
     }
-    .card-content .card-price p .price{
-        font-size: 1rem;
-      
-    }
-    
 
+    .card-content .card-price p .price {
+        font-size: 1rem;
+    }
+
+    .filter {
+        display: block;
+    }
 }
 
-@media screen and (max-width: 500px){
-    .card-container{
+@media screen and (max-width: 500px) {
+    .store-hero-container {
+        height: 30vh;
+    }
+
+    .store-hero-container h1 {
+        font-size: 1.2rem;
+    }
+
+    .store-wrapper .store-content {
+        grid-template-columns: 1fr;
+    }
+
+    .card-container {
         width: 200px;
     }
 
-    .card-container .card-img-container{
+    .card-container .card-img-container {
         height: 200px;
     }
 
     .card-content .card-price {
         flex-direction: column;
-        align-items: start;
-    }
-    .card-content .card-price p .price{
-        font-size: .8rem;
+        align-items: flex-start;
     }
 
-    .card-content .card-details h3{
-        font-size: .9rem;
+    .card-content .card-price p .price {
+        font-size: 0.8rem;
     }
 
-    .card-content .card-details p{
-       display: none;
+    .card-content .card-details h3 {
+        font-size: 0.9rem;
     }
-    
+
+    .card-content .card-details p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .store-wrapper {
+        flex-direction: column;
+    }
+
+    .store-wrapper .side-menu {
+        display: none;
+    }
+
+    .store-hero-container {
+        height: 30vh;
+    }
+
+    .store-hero-container h1 {
+        font-size: 1.2rem;
+    }
 }

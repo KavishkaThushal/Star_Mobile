@@ -1,36 +1,38 @@
-import './listcard.css'
-import { useNavigate } from 'react-router-dom'
+import './listcard.css';
+import { useNavigate } from 'react-router-dom';
 
+function ListCard({ FeaturesList, Name, ProductImg, Price, Amount, onDelete, id }) {
+    const navigate = useNavigate();
 
-function ListCard({FeaturesList,Name,ProductImg,Price,Amount,}) {
-    const navigate=useNavigate()
-  return (
-    <div className='list-item-card'>
-          <div className='list-img-container'>
-          <img src={ProductImg} alt='' />
-          </div>
-          <p>{Name}</p>
-          <span className='list-item-features'>
+    return (
+        <div className='list-item-card'>
+            <div className='list-img-container'>
+                <img src={ProductImg} alt={Name} />
+            </div>
 
-          {
-              FeaturesList.map((item,i)=>(
+            <p className='list-name'>{Name}</p>
 
-                <span key={i}>
-                    <p>{item}</p>
-                    <p></p>
-                   </span>
-                
-            ))}
-            
-          </span>
-          <p>{Amount}</p>
-          <p>Rs.{Price}</p>
-          <p className='item-remove'>X</p>
-          <button type='submit' onClick={()=>(navigate('/edit'))}>Edit</button>
-          
+            <div className='list-item-features'>
+                <div className='list-item-features'>
+                    {FeaturesList.map((featureObj, i) => (
+                        Object.entries(featureObj).map(([key, value]) => (
+                            <p key={`${i}-${key}`} className='feature'>
+                                <strong>{key}:</strong> {value}
+                            </p>
+                        ))
+                    ))}
+                </div>
 
+            </div>
+
+            <p className='list-amount'>{Amount}</p>
+            <p className='list-price'>Rs. {Price}</p>
+
+            <p className='item-remove' onClick={() => onDelete(id)}>X</p>
+
+            <button type='button' onClick={() => navigate(`/edit/${id}`)}>Edit</button>
         </div>
-  )
+    );
 }
 
-export default ListCard
+export default ListCard;

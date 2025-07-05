@@ -1,37 +1,48 @@
-import Navbar from "./components/Navbar/Navbar"
-import Sidebar from "./components/Sidebar/Sidebar"
-import { Routes, Route } from "react-router-dom"
-import Add from "./pages/Add/Add"
-import List from "./pages/List/List"
-import Status from "./pages/Status/Status"
-import Edit from "./pages/Edit/Edit"
-import Home from "./pages/Home/Home"
-import SignIn from "./components/SignIn/SignIn"
+import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { Routes, Route } from "react-router-dom";
+import Add from "./pages/Add/Add";
+import List from "./pages/List/List";
+import Status from "./pages/Status/Status";
+import Edit from "./pages/Edit/Edit";
+import Home from "./pages/Home/Home";
+import SignIn from "./components/SignIn/SignIn";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const Token=''
-
-
+    const token = localStorage.getItem('authToken');
 
   return (
-    <>
-    {!Token? <SignIn/>:<>
-      <Navbar/>
-    <Sidebar/>
-    <Routes>
-    {/* <Route path="/" element={<SignIn/>}/> */}
-      <Route path="/" element={<Home/>}/>
-      <Route path="/add" element={<Add/>}/>
-      <Route path="/list" element={<List/>}/>
-      <Route path="/status" element={<Status/>}/>
-      <Route path="/edit" element={<Edit/>}/>
-    </Routes>
-    </>
-    
-}
-    </>
-      
-  )
+      <>
+        {!token ? (
+            <SignIn />
+        ) : (
+            <>
+              <Navbar />
+              <Sidebar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/add" element={<Add />} />
+                <Route path="/list" element={<List />} />
+                <Route path="/status" element={<Status />} />
+                <Route path="/edit/:id" element={<Add />} />
+              </Routes>
+            </>
+        )}
+
+        {/* This should be outside of <Routes> */}
+        <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            closeOnClick
+            pauseOnHover
+            draggable
+            theme="colored"
+        />
+      </>
+  );
 }
 
-export default App
+export default App;
