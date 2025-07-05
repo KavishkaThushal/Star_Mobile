@@ -93,8 +93,21 @@
 .appointment-form .appointment-text-container label{
     font-size: .8rem;
 }
+.error-text {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+}
 
+.ant-table-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
 
+.input-error {
+    border: 1px solid red !important;
+}
 .appointment-form .appointment-text-container textarea{
     padding: .5rem 1rem;
     border-radius: 4px;

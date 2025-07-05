@@ -16,8 +16,22 @@
     margin: 0;
     font-size: 48px;
   }
-  
-  .contact-section {
+
+.error-text {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.success-text {
+  color: green;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+
+.contact-section {
     text-align: center;
     margin: 40px 0;
   }

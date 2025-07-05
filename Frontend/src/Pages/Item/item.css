@@ -140,6 +140,27 @@
     gap: .3rem;
    
 }
+
+.feature {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.bundle-btn {
+    display: flex;
+    gap: 10px;
+    padding: 6px 10px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.item-description p {
+    margin: 0 0 6px;
+}
+
 .item-info-content span{
     display: flex;
     flex-direction: row;
