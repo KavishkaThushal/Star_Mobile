@@ -44,7 +44,7 @@ const Services = () => {
   }, [testimonials.length]);
 
   return (
-    <div className="services">
+    <div className="services fadeInUp">
         <section className="header-section">
             <h1>Services</h1>
         </section>

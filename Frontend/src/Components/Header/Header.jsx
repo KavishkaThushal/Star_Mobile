@@ -86,21 +86,18 @@ export default function Header() {
                             {isMobileMenuOpen ? <FiX size={30} /> : <FiMenu size={30} />}
                         </div>
                     </div>
-                    {
-                        isMobileMenuOpen && (
-                            <div className='mobile-navigation-link-collection'>
-                                <Link to='/' className='header-nav-link' onClick={closeMobileMenu}>Home</Link>
-                                <Link to='/aboutus' className='header-nav-link'  onClick={closeMobileMenu}>AboutUs</Link>
-                                <Link to='/services' className='header-nav-link'  onClick={closeMobileMenu}>Services</Link>
-                                <Link to='/gallery' className='header-nav-link'  onClick={closeMobileMenu}>Gallery</Link>
-                                <Link to='/store' className='header-nav-link'  onClick={closeMobileMenu}>Store</Link>
-                                <Link to='/contactus' className='header-nav-link'  onClick={closeMobileMenu}>Contact</Link>
-                                <Link to='/appointment' className='header-nav-link'  onClick={closeMobileMenu}>Appointment</Link>
-                                <Link to='/register' className='header-nav-link'  onClick={closeMobileMenu}>Register</Link>
-                                <Link to='/login' className='header-nav-link'  onClick={closeMobileMenu}>Login</Link>
-                            </div>
-                        )
-                    }
+                    <div className={`mobile-navigation-link-collection ${isMobileMenuOpen ? 'open' : ''}`}>
+                        <Link to='/' className='header-nav-link' onClick={closeMobileMenu}>Home</Link>
+                        <Link to='/aboutus' className='header-nav-link' onClick={closeMobileMenu}>AboutUs</Link>
+                        <Link to='/services' className='header-nav-link' onClick={closeMobileMenu}>Services</Link>
+                        <Link to='/gallery' className='header-nav-link' onClick={closeMobileMenu}>Gallery</Link>
+                        <Link to='/store' className='header-nav-link' onClick={closeMobileMenu}>Store</Link>
+                        <Link to='/contactus' className='header-nav-link' onClick={closeMobileMenu}>Contact</Link>
+                        <Link to='/appointment' className='header-nav-link' onClick={closeMobileMenu}>Appointment</Link>
+                        <Link to='/register' className='header-nav-link' onClick={closeMobileMenu}>Register</Link>
+                        <Link to='/login' className='header-nav-link' onClick={closeMobileMenu}>Login</Link>
+                    </div>
+
                 </div>
 
             </div> :
@@ -124,21 +121,18 @@ export default function Header() {
                             {isMobileMenuOpen ? <FiX size={30} /> : <FiMenu size={30} />}
                         </div>
                     </div>
-                    {
-                        isMobileMenuOpen && (
-                            <div className='mobile-navigation-link-collection'>
-                                <Link to='/' className='header-nav-link' onClick={closeMobileMenu}>Home</Link>
-                                <Link to='/aboutus' className='header-nav-link'  onClick={closeMobileMenu}>AboutUs</Link>
-                                <Link to='/services' className='header-nav-link'  onClick={closeMobileMenu}>Services</Link>
-                                <Link to='/gallery' className='header-nav-link'  onClick={closeMobileMenu}>Gallery</Link>
-                                <Link to='/store' className='header-nav-link'  onClick={closeMobileMenu}>Store</Link>
-                                <Link to='/contactus' className='header-nav-link'  onClick={closeMobileMenu}>Contact</Link>
-                                <Link to='/appointment' className='header-nav-link'  onClick={closeMobileMenu}>Appointment</Link>
-                                <Link to='/register' className='header-nav-link'  onClick={closeMobileMenu}>Register</Link>
-                                <Link to='/login' className='header-nav-link'  onClick={closeMobileMenu}>Login</Link>
-                            </div>
-                        )
-                    }
+                    <div className={`mobile-navigation-link-collection ${isMobileMenuOpen ? 'open' : ''}`}>
+                        <Link to='/' className='header-nav-link' onClick={closeMobileMenu}>Home</Link>
+                        <Link to='/aboutus' className='header-nav-link' onClick={closeMobileMenu}>AboutUs</Link>
+                        <Link to='/services' className='header-nav-link' onClick={closeMobileMenu}>Services</Link>
+                        <Link to='/gallery' className='header-nav-link' onClick={closeMobileMenu}>Gallery</Link>
+                        <Link to='/store' className='header-nav-link' onClick={closeMobileMenu}>Store</Link>
+                        <Link to='/contactus' className='header-nav-link' onClick={closeMobileMenu}>Contact</Link>
+                        <Link to='/appointment' className='header-nav-link' onClick={closeMobileMenu}>Appointment</Link>
+                        <Link to='/register' className='header-nav-link' onClick={closeMobileMenu}>Register</Link>
+                        <Link to='/login' className='header-nav-link' onClick={closeMobileMenu}>Login</Link>
+                    </div>
+
                 </div>
 
             </div>

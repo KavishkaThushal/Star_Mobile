@@ -12,7 +12,7 @@ import Headroom from 'react-headroom'
 
 function Home() {
   return (
-    <div>
+    <div className="fadeInUp">
       <Slider />
       <HomeAbout />
       <QualityAttributes />

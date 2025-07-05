@@ -7,7 +7,7 @@ import Image3 from '../../assets/time.svg'
 
 function ContactUs() {
   return (
-    <div className="contact-page">
+    <div className="contact-page fadeInUp">
       <div className="contact-header">
         <h1>Contact</h1>
       </div>

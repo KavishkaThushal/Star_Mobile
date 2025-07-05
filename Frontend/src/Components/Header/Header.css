@@ -83,7 +83,6 @@
 
 .mobile-navigation-link-collection,
 .mobile-authenticate-link-collection {
-    padding-bottom:2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -91,7 +90,24 @@
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
+
+    /* Animation setup */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(0px);
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
 }
+
+/* When menu is toggled open */
+.mobile-navigation-link-collection.open,
+.mobile-authenticate-link-collection.open {
+    padding-bottom: 2rem;
+    max-height: 1000px; /* Large enough to fit all content */
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 
 .navigation-link-collection {
@@ -204,7 +220,8 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: start;
-        gap: 1rem;
+        /*gap: 1rem;*/
+        /*background: #03e7c8;*/
     }
 
 

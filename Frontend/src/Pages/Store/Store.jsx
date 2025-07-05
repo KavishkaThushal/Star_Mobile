@@ -10,7 +10,7 @@ const Price=['Under 20000Lkr','Under 50000Lkr','Under 100000Lkr']
 function Store() {
   const [filter, setFilter] = useState(false)
   return (
-    <>
+    <div className="fadeInUp">
     <div className='store-hero-container'>
         <h1>STORE</h1>
     </div>
@@ -147,7 +147,7 @@ function Store() {
             
         </div>
     </div>
-    </>
+    </div>
   )
 }
 

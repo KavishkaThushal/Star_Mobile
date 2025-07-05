@@ -8,7 +8,7 @@ import BookingModel from '../BookingModel/BookingModel';
 function Appointment() {
     const [opened, setOpened] = useState(false)
   return (
-    <div className='appointment-wrapper'>
+    <div className='appointment-wrapper fadeInUp'>
             <div className='appointment-left'>
                 <h2>GET APPOINTMENT NOW</h2>
                 <div className='appointment-form'>
