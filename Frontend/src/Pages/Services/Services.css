@@ -210,6 +210,7 @@
 }
 
 .header-section h1 {
+  text-transform: uppercase;
   color: white;
   font-size: 3rem;
   margin: 0;
@@ -264,7 +265,7 @@
   padding: 40px 20px;
 }
 
-.feature {
+.s-feature {
   margin: 1rem 0;
   text-align: center;
   width: 22%;
@@ -272,12 +273,12 @@
   box-sizing: border-box;
 }
 
-.feature svg {
+.s-feature svg {
   font-size: 2em;
   margin-bottom: 15px;
 }
 
-.feature a {
+.s-feature a {
   color: white;
   text-decoration: none;
   font-size: 0.8em;

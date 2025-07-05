@@ -9,9 +9,9 @@ import api from "../../config/axiosInterceptor.js";
 function ContactUs() {
   return (
     <div className="contact-page fadeInUp">
-      <div className="contact-header">
-        <h1>Contact</h1>
-      </div>
+        <section className="header-section">
+            <h1>Contact</h1>
+        </section>
       <div className="contact-section">
         <h2>SEND US MESSAGE</h2>
         <p>

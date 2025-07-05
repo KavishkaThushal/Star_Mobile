@@ -4,11 +4,35 @@ import { HiMiniClock } from 'react-icons/hi2';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { Link, useNavigate } from 'react-router-dom';
+import {FiMenu, FiX} from "react-icons/fi";
 
 export default function Header() {
     const [scrollY, setScrollY] = useState(0);
     const navigate = useNavigate();
     const isLoggedIn = Boolean(localStorage.getItem('access_token'));
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const mobileNavLinks = [
+        { path: '/', label: 'Home' },
+        { path: '/aboutus', label: 'AboutUs' },
+        { path: '/services', label: 'Services' },
+        { path: '/gallery', label: 'Gallery' },
+        { path: '/store', label: 'Store' },
+        { path: '/contactus', label: 'Contact' },
+        { path: '/appointment', label: 'Appointment' },
+        { path: '/register', label: 'Register' },
+        { path: '/login', label: 'Login' }
+    ];
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false);
+    };
+
 
     useEffect(() => {
 
@@ -59,47 +83,43 @@ export default function Header() {
             <Link to="/store" className="header-nav-link">Store</Link>
             <Link to="/contactus" className="header-nav-link">Contact</Link>
             <Link to="/appointment" className="header-nav-link">Appointment</Link>
-            {renderAuthLinks()}
         </>
     );
 
-            <div className='header-contact-section' id='header-contact-section'>
-                <div className='header-contact'>
-                    <HiMiniClock size={30} color='#2E4C66' className='header-contact-icon' />
-                    <div className='header-contact-details'>
-                        <p className='header-contact-details-title'>Opening Time</p>
-                        <p className='header-contact-details-description'>All days 9.00 to 8.00</p>
+    return (
+        scrollY < 100 ?
+            <div className='header'>
+
+                <div className='header-contact-section' id='header-contact-section'>
+                    <div className='header-contact'>
+                        <HiMiniClock size={30} color='#2E4C66' className='header-contact-icon' />
+                        <div className='header-contact-details'>
+                            <p className='header-contact-details-title'>Opening Time</p>
+                            <p className='header-contact-details-description'>All days 9.00 to 8.00</p>
+                        </div>
+                    </div>
+                    <div className='header-contact'>
+                        <FaPhoneAlt size={25} color='#2E4C66' className='header-contact-icon' />
+                        <div className='header-contact-details'>
+                            <p className='header-contact-details-title'>Call us 24/7</p>
+                            <p className='header-contact-details-description'>+456 756 0329</p>
+                        </div>
+                    </div>
+                    <div className='header-contact'>
+                        <IoMdMail size={30} color='#2E4C66' className='header-contact-icon' />
+                        <div className='header-contact-details'>
+                            <p className='header-contact-details-title'>Email Us</p>
+                            <p className='header-contact-details-description'>info@example.com</p>
+                        </div>
                     </div>
                 </div>
-                <div className='header-contact'>
-                    <FaPhoneAlt size={25} color='#2E4C66' className='header-contact-icon' />
-                    <div className='header-contact-details'>
-                        <p className='header-contact-details-title'>Call us 24/7</p>
-                        <p className='header-contact-details-description'>+456 756 0329</p>
-                    </div>
-                </div>
-                <div className='header-contact'>
-                    <IoMdMail size={30} color='#2E4C66' className='header-contact-icon' />
-                    <div className='header-contact-details'>
-                        <p className='header-contact-details-title'>Email Us</p>
-                        <p className='header-contact-details-description'>info@example.com</p>
-                    </div>
-                </div>
-            </div>
 
                 <div className='header-navigation-section'>
                     <div className='navigation-link-collection'>
-                        <Link to='/' className='header-nav-link'>Home</Link>
-                        <Link to='/aboutus' className='header-nav-link'>AboutUs</Link>
-                        <Link to='/services' className='header-nav-link'>Services</Link>
-                        <Link to='/gallery' className='header-nav-link'>Gallery</Link>
-                        <Link to='/store' className='header-nav-link'>Store</Link>
-                        <Link to='/contactus' className='header-nav-link'>Contact</Link>
-                        <Link to='/appointment' className='header-nav-link'>Appointment</Link>
+                        {renderNavLinks()}
                     </div>
                     <div className='authenticate-link-collection'>
-                        <Link to='/register' className='header-nav-link authenticate-link' id='authenticate-link'>Register</Link>
-                        <Link to='/login' className='header-nav-link authenticate-link'>Login</Link>
+                        {renderAuthLinks()}
                     </div>
                 </div>
 
@@ -110,15 +130,16 @@ export default function Header() {
                         </div>
                     </div>
                     <div className={`mobile-navigation-link-collection ${isMobileMenuOpen ? 'open' : ''}`}>
-                        <Link to='/' className='header-nav-link' onClick={closeMobileMenu}>Home</Link>
-                        <Link to='/aboutus' className='header-nav-link' onClick={closeMobileMenu}>AboutUs</Link>
-                        <Link to='/services' className='header-nav-link' onClick={closeMobileMenu}>Services</Link>
-                        <Link to='/gallery' className='header-nav-link' onClick={closeMobileMenu}>Gallery</Link>
-                        <Link to='/store' className='header-nav-link' onClick={closeMobileMenu}>Store</Link>
-                        <Link to='/contactus' className='header-nav-link' onClick={closeMobileMenu}>Contact</Link>
-                        <Link to='/appointment' className='header-nav-link' onClick={closeMobileMenu}>Appointment</Link>
-                        <Link to='/register' className='header-nav-link' onClick={closeMobileMenu}>Register</Link>
-                        <Link to='/login' className='header-nav-link' onClick={closeMobileMenu}>Login</Link>
+                        {mobileNavLinks.map((link, index) => (
+                            <Link
+                                key={index}
+                                to={link.path}
+                                className='header-nav-link'
+                                onClick={closeMobileMenu}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
                     </div>
 
                 </div>
@@ -127,15 +148,8 @@ export default function Header() {
             <div className='scrolled-header'>
 
                 <div className='active-header-navigation-section'>
-                    <Link to='/' className='header-nav-link'>Home</Link>
-                    <Link to='/aboutus' className='header-nav-link'>AboutUs</Link>
-                    <Link to='/services' className='header-nav-link'>Services</Link>
-                    <Link to='/gallery' className='header-nav-link'>Gallery</Link>
-                    <Link to='/store' className='header-nav-link'>Store</Link>
-                    <Link to='/contactus' className='header-nav-link'>Contact</Link>
-                    <Link to='/appointment' className='header-nav-link'>Appointment</Link>
-                    <Link to='/register' className='header-nav-link authenticate-link' id='authenticate-link'>Register</Link>
-                    <Link to='/login' className='header-nav-link authenticate-link'>Login</Link>
+                    {renderNavLinks()}
+                    {renderAuthLinks()}
                 </div>
 
                 <div className='mobile-header-navigation-section'>
@@ -145,15 +159,16 @@ export default function Header() {
                         </div>
                     </div>
                     <div className={`mobile-navigation-link-collection ${isMobileMenuOpen ? 'open' : ''}`}>
-                        <Link to='/' className='header-nav-link' onClick={closeMobileMenu}>Home</Link>
-                        <Link to='/aboutus' className='header-nav-link' onClick={closeMobileMenu}>AboutUs</Link>
-                        <Link to='/services' className='header-nav-link' onClick={closeMobileMenu}>Services</Link>
-                        <Link to='/gallery' className='header-nav-link' onClick={closeMobileMenu}>Gallery</Link>
-                        <Link to='/store' className='header-nav-link' onClick={closeMobileMenu}>Store</Link>
-                        <Link to='/contactus' className='header-nav-link' onClick={closeMobileMenu}>Contact</Link>
-                        <Link to='/appointment' className='header-nav-link' onClick={closeMobileMenu}>Appointment</Link>
-                        <Link to='/register' className='header-nav-link' onClick={closeMobileMenu}>Register</Link>
-                        <Link to='/login' className='header-nav-link' onClick={closeMobileMenu}>Login</Link>
+                        {mobileNavLinks.map((link, index) => (
+                            <Link
+                                key={index}
+                                to={link.path}
+                                className='header-nav-link'
+                                onClick={closeMobileMenu}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
                     </div>
 
                 </div>
@@ -161,4 +176,5 @@ export default function Header() {
             </div>
 
     )
+
 }
