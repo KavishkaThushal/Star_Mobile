@@ -1,10 +1,10 @@
 
 
 .store-hero-container{
+    height: 31.25rem;
     background: url('../../assets/HeroImg.png');
     background-size: cover;
     background-position: center;
-    height: 50vh;
     object-fit: cover;
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@
 
 .store-hero-container h1{
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
 
 }
@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: row;
     width: 95%;
-   position: relative;
+    position: relative;
     margin: 1rem auto;
 
 }
@@ -43,11 +43,11 @@
 
 
 .store-wrapper .side-menu .filter-section{
-display: flex;
-flex-direction: column;
-gap: .8rem;
-font-size: 1.2rem;
-font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .store-wrapper .side-menu .filter-section span{
@@ -152,8 +152,8 @@ font-weight: 500;
 
 @media screen and (max-width: 768px){
 
-.store-wrapper .side-menu .filter-section{
-    font-size: 1rem;
+    .store-wrapper .side-menu .filter-section{
+        font-size: 1rem;
     }
 
     .filter-section span input{
@@ -170,7 +170,7 @@ font-weight: 500;
 
 @media screen and (max-width: 500px){
     .store-hero-container{
-        height: 30vh;
+        height: 20rem;
     }
     .store-hero-container h1{
         font-size: 1.2rem;
@@ -183,9 +183,6 @@ font-weight: 500;
 }
 
 @media screen and (max-width: 320px){
-    .store-hero-container{
-        height: 30vh;
-    }
     .store-hero-container h1{
         font-size: 1.2rem;
     }

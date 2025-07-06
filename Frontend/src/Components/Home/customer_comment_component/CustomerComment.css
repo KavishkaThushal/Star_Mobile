@@ -85,3 +85,61 @@ p.home-customer-comment-name {
 div.home-customer-comment-swiper-container .swiper-pagination-bullet-active {
     background-color: #02BBA3;
 }
+
+/* ===== Responsive Styles ===== */
+
+@media screen and (max-width: 1024px) {
+    div.home-customer-comment-swiper-container {
+        max-width: 90%;
+    }
+
+    div.home-customer-comment {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    img.home-customer-comment-usser-pic {
+        margin-bottom: 1rem;
+    }
+
+    div.home-customer-comment-txt-and-name {
+        padding-right: 0;
+        align-items: center;
+    }
+
+    p.home-customer-comment-txt {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    p.home-customer-comment-title {
+        font-size: 2rem;
+    }
+
+    div.home-customer-comment-underline {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    p.home-customer-comment-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    div.home-customer-comment {
+        padding: 1.5rem 0.5rem;
+    }
+
+    p.home-customer-comment-txt {
+        font-size: 0.9rem;
+    }
+
+    p.home-customer-comment-name {
+        font-size: 1rem;
+    }
+}
+

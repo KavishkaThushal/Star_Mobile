@@ -5,17 +5,17 @@ import { Outlet } from 'react-router-dom'
 import Headroom from "react-headroom";
 
 function Layout() {
-  return (
-    <div>
+    return (
+        <div className="layout-container">
 
-      <Headroom>
-        <Header className="nav-header" />
-      </Headroom>
-      <Outlet />
-      <Footer />
+            <Headroom>
+                <Header className="nav-header" />
+            </Headroom>
+            <Outlet />
+            <Footer />
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Layout

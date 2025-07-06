@@ -4,23 +4,23 @@ div.footer{
     background-color: #2E4C66;
 }
 div.footer-upper-section{
-    padding: 2.5rem 4.25rem; 
+    padding: 2.5rem 4.25rem;
     display:flex;
 }
 div.upper-section-left-part{
-    /* background-color: aqua; */
+    /*background-color: aqua;*/
     max-width: 60%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     justify-content: space-between;
 }
 div.left-part-about-part{
-    margin-left: 3.125rem; 
+    margin-left: 3.125rem;
     display: flex;
     flex-direction: column;
 }
 div.footer-social-media-section{
-    padding: 1.25rem 0rem; 
+    padding: 1.25rem 0rem;
     color: #00000080;
     display: flex;
     align-items: center;
@@ -48,33 +48,33 @@ p.about-part-title{
     text-transform: uppercase;
 }
 p.about-part-subtitile{
-    padding-top: 0.625rem; 
+    padding-top: 0.625rem;
     font-family: "Poppins", sans-serif;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.2;
-    color: #FFF; 
+    color: #FFF;
 }
 p.recent-post{
-    border-bottom: 0.125rem solid #02BBA3; 
+    border-bottom: 0.125rem solid #02BBA3;
 }
 p.about-part-text{
-    padding-top: 0.625rem; 
+    padding-top: 0.625rem;
     font-family: "Poppins", sans-serif;
-    font-size: 0.75rem; 
+    font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.2;
     color: #000000;
 }
 div.upper-section-right-part{
-    /* background-color: aqua; */
-    margin-left: 6.25rem; 
+    /*background-color: aqua;*/
+    margin-left: 6.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 div.right-part-contact-details{
-    margin-left: 1.875rem; 
+    margin-left: 1.875rem;
     display: flex;
     flex-direction: column;
 }
@@ -83,7 +83,7 @@ div.right-part-contact-details p{
 }
 p.rght-part-contact-number{
     font-family: "Poppins", sans-serif;
-    font-size: 1.8125rem; 
+    font-size: 1.8125rem;
     color:#02BBA3;
 }
 p.rght-part-contact-description{
@@ -94,23 +94,115 @@ p.rght-part-contact-description{
 }
 div.footer-down-section{
     margin-top: 0rem;
-    margin-left: 1.25rem; 
-    margin-right: 3.125rem; 
-    padding: 0.9375rem 4.375rem; 
-    border-top: 0.125rem solid #02BBA3; 
+    margin-left: 1.25rem;
+    margin-right: 3.125rem;
+    padding: 0.9375rem 4.375rem;
+    border-top: 0.125rem solid #02BBA3;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 .footer-nav-link{
     margin: 0 ;
-    padding: 0rem 0.625rem; 
+    padding: 0rem 0.625rem;
     color:#02BBA3;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
-    font-size: 1rem; 
+    font-size: 1rem;
     text-transform: uppercase;
     text-decoration: none;
     line-height: 1;
-    border-right: 0.125rem solid #02BBA3; 
+    border-right: 0.125rem solid #02BBA3;
+}
+
+@media (max-width: 1024px) {
+    img {
+        max-width: 50%;
+        height: auto;
+    }
+    div.footer-upper-section {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    div.upper-section-left-part {
+        max-width: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    div.left-part-about-part{
+        margin-left: 0;
+    }
+
+    div.upper-section-right-part {
+        margin-left: 0;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    div.upper-section-left-part {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    div.footer-social-media-section{
+        justify-content: start;
+        gap:2rem;
+    }
+
+    div.upper-section-right-part {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    div.right-part-contact-details {
+        padding: 2.45rem 0;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .footer-down-section {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 2rem;
+    }
+
+    .footer-nav-link {
+        padding: 0.5rem 0;
+        border: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .footer-nav-link {
+        font-size: 0.875rem;
+    }
+
+    .footer-social-media-section {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .footer-social-media-icon-container {
+        padding: 0.5rem;
+    }
+
+    p.rght-part-contact-number {
+        font-size: 1.25rem;
+    }
+
+    p.rght-part-contact-description {
+        font-size: 0.625rem;
+    }
+
+    p.about-part-title,
+    p.about-part-subtitile,
+    p.about-part-text {
+        font-size: 0.75rem;
+    }
 }

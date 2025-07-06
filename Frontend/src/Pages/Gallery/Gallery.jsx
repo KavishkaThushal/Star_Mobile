@@ -4,7 +4,7 @@ import GalleryComponent from '../../Components/Gallery/gallery_content/GalleryCo
 
 function Gallery() {
   return (
-    <div>
+    <div className="fadeInUp">
        <Slider></Slider>
        <GalleryComponent></GalleryComponent>
     </div>
