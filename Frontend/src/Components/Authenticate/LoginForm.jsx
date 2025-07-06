@@ -58,7 +58,7 @@ export default function LoginForm() {
 
     return (
         <div className='authenticate-form-screen'>
-            <div className='authenticate-form-container'>
+            <div className='authenticate-form-container fadeInUp'>
                 <div className='authenticate-form'>
                     <h2>Welcome Again</h2>
                     <p>Unlocking Seamless Phone Repair Solutions Right at Your Fingertips.</p>

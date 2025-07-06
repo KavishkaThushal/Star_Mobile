@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../../Components/Card/Card';
 import { MdClose } from "react-icons/md";
 import api from "../../config/axiosInterceptor.js";
@@ -65,10 +65,10 @@ function Store() {
     const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
 
     return (
-        <>
-            <div className='store-hero-container'>
-                <h1>STORE</h1>
-            </div>
+        <div className="fadeInUp">
+            <section className="header-section">
+                <h1>Store</h1>
+            </section>
 
             <div className='store-wrapper'>
                 <h3 className='filter' onClick={() => setFilterOpen(prev => !prev)}>Filter</h3>
@@ -199,7 +199,7 @@ function Store() {
                     </button>
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 

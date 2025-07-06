@@ -16,7 +16,7 @@ const technicians = [
 
 const AboutUs = () => {
   return (
-    <div className="about-us">
+    <div className="about-us fadeInUp">
       <section className="header-section">
         <h1>About Us</h1>
       </section>
