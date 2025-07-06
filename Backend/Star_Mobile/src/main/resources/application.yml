@@ -1,5 +1,0 @@
-#spring:
-#  data:
-#    mongodb:
-#      uri: mongodb+srv://Admin:Star3349@starmobile.ctwbnyk.mongodb.net/?retryWrites=true&w=majority&appName=StarMobile
-#      database: Star_Mobile
