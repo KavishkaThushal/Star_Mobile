@@ -80,6 +80,7 @@ div.password-input-container input {
 
 span.toggle-password {
     position: absolute;
+    top: 0.4rem;
     right: 0.625rem;
     cursor: pointer;
 }
