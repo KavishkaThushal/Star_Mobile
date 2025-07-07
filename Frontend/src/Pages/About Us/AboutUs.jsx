@@ -1,7 +1,10 @@
 import React from "react";
 import "./AboutUs.css";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
-
+import tech1 from "../../assets/images/emp_1.jpg";
+import tech2 from "../../assets/images/emp_2.jpg";
+import tech3 from "../../assets/images/emp_3.jpg";
+import about_hero from "../../assets/images/repair.png";
 const highlights = [
   {
     title: "Great experience",
@@ -21,9 +24,9 @@ const highlights = [
 ];
 
 const technicians = [
-  { name: "Vimukthi Jayawicrama", image: "/src/assets/images/emp_1.jpg" },
-  { name: "Mohamad Nafraz", image: "/src/assets/images/emp_2.jpg" },
-  { name: "Kamal Rajapaksha", image: "/src/assets/images/emp_3.jpg" },
+  { name: "Vimukthi Jayawicrama", image: tech1 },
+  { name: "Mohamad Nafraz", image: tech2 },
+  { name: "Kamal Rajapaksha", image: tech3 },
 ];
 
 const AboutUs = () => {
@@ -35,7 +38,7 @@ const AboutUs = () => {
 
       <section className="intro-section">
         <div className="intro-image">
-          <img src="/src/assets/images/repair.png" alt="Phone Repair" />
+          <img src={about_hero} alt="Phone Repair" />
         </div>
         <div className="intro-text">
           <h2>Your Trusted Mobile Repair Experts</h2>
