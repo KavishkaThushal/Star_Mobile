@@ -78,6 +78,7 @@ export default function SignupForm() {
               className={errors.userName ? "input-error" : ""}
               placeholder="Enter username"
               value={userName}
+              maxLength={15}
               onChange={(e) => setUserName(e.target.value)}
             />
             {errors.userName && (

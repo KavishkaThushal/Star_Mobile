@@ -121,7 +121,7 @@ export default function Header() {
           <div className="header-contact-details">
             <p className="header-contact-details-title">Opening Time</p>
             <p className="header-contact-details-description">
-              All days 9.00 to 8.00
+              All days 9.00 AM to 8.00 PM
             </p>
           </div>
         </div>
@@ -133,7 +133,7 @@ export default function Header() {
           />
           <div className="header-contact-details">
             <p className="header-contact-details-title">Call us 24/7</p>
-            <p className="header-contact-details-description">+456 756 0329</p>
+            <p className="header-contact-details-description">0703279293</p>
           </div>
         </div>
         <div className="header-contact">
@@ -141,7 +141,7 @@ export default function Header() {
           <div className="header-contact-details">
             <p className="header-contact-details-title">Email Us</p>
             <p className="header-contact-details-description">
-              info@example.com
+              starmobile@gmail.com
             </p>
           </div>
         </div>
