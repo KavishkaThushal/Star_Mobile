@@ -80,7 +80,7 @@ export default function CustomerComment() {
                   professionally. Very friendly staff and reasonable prices.
                   Highly recommend this place for any phone issues!”
                 </p>
-                <p className="home-customer-comment-name">Shanka Visal</p>
+                <p className="home-customer-comment-name">Shanu Disanayaka</p>
               </div>
             </div>
           </SwiperSlide>
