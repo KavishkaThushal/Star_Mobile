@@ -1,17 +1,29 @@
-import React from 'react';
-import './AboutUs.css';
-import { FaFacebook, FaTwitter } from 'react-icons/fa';
+import React from "react";
+import "./AboutUs.css";
+import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 const highlights = [
-  { title: 'Great experience', description: 'Strong knausgaard ugh hammock marfa vice kinfolk heirloom everyday carry. Dreamcatcher enamel pin kogi.' },
-  { title: 'Quality guarantee', description: 'Strong knausgaard ugh hammock marfa vice kinfolk heirloom everyday carry. Dreamcatcher enamel pin kogi.' },
-  { title: 'Customer support', description: 'Strong knausgaard ugh hammock marfa vice kinfolk heirloom everyday carry. Dreamcatcher enamel pin kogi.' }
+  {
+    title: "Great experience",
+    description:
+      "Strong knausgaard ugh hammock marfa vice kinfolk heirloom everyday carry. Dreamcatcher enamel pin kogi.",
+  },
+  {
+    title: "Quality guarantee",
+    description:
+      "Strong knausgaard ugh hammock marfa vice kinfolk heirloom everyday carry. Dreamcatcher enamel pin kogi.",
+  },
+  {
+    title: "Customer support",
+    description:
+      "Strong knausgaard ugh hammock marfa vice kinfolk heirloom everyday carry. Dreamcatcher enamel pin kogi.",
+  },
 ];
 
 const technicians = [
-  { name: 'Daniel Pearce', image: '/src/assets/images/shashidu-profile.png' },
-  { name: 'Theekshan', image: '/src/assets/images/theekshana-profile.png' },
-  { name: 'Shahab', image: '/src/assets/images/shashidu-profile.png' }
+  { name: "Vimukthi Jayawicrama", image: "/src/assets/images/emp_1.jpg" },
+  { name: "Mohamad Nafraz", image: "/src/assets/images/emp_2.jpg" },
+  { name: "Kamal Rajapaksha", image: "/src/assets/images/emp_3.jpg" },
 ];
 
 const AboutUs = () => {
@@ -20,20 +32,30 @@ const AboutUs = () => {
       <section className="header-section">
         <h1>About Us</h1>
       </section>
-      
+
       <section className="intro-section">
         <div className="intro-image">
           <img src="/src/assets/images/repair.png" alt="Phone Repair" />
         </div>
         <div className="intro-text">
-          <h2>We are NaplesPhone Repair</h2>
+          <h2>Your Trusted Mobile Repair Experts</h2>
           <p>
-            Good armadillo vulpes philosophy modest Victrola eternal-astern smartwatch dictionary small batch and yoga. Dreamcatcher cold-pressed enamel pin kogi.
+            We specialize in fast, affordable, and reliable mobile phone repair
+            services. Whether it’s a cracked screen, battery issue, charging
+            port problem, or software malfunction, our skilled technicians are
+            ready to assist you with care and precision. We work with all major
+            phone brands and models, ensuring that your device gets the expert
+            attention it deserves. At NaplesPhone Repair, we pride ourselves on
+            delivering top-notch service with a personal touch. We offer
+            same-day repairs for most issues, competitive pricing, and friendly
+            customer support to make your experience smooth and stress-free.
+            From diagnostics to repair and after-service care, we’re committed
+            to keeping you connected. Your satisfaction and trust are what drive
+            us every day.
           </p>
-          <button>Read More</button>
         </div>
       </section>
-      
+
       <section className="highlights-section">
         {highlights.map((highlight, index) => (
           <div className="highlight" key={index}>
@@ -42,10 +64,13 @@ const AboutUs = () => {
           </div>
         ))}
       </section>
-      
+
       <section className="technicians-section">
         <h2>Meet Our Technicians</h2>
-        <p>Overcome faithful endless salvation enlightenment salvation overcome pious merciful osastic madness hotdish joy passion zenith.</p>
+        <p>
+          Overcome faithful endless salvation enlightenment salvation overcome
+          pious merciful osastic madness hotdish joy passion zenith.
+        </p>
         <div className="technicians">
           {technicians.map((tech, index) => (
             <div className="technician" key={index}>
