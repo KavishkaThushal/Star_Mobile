@@ -117,8 +117,8 @@ function AddEditProduct() {
   };
 
   const handleSubmit = async () => {
+   
     if (!validateForm()) return;
-
     try {
       let imageUrl = previewUrl;
 
