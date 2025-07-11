@@ -3,12 +3,15 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import api from "../../config/axiosInterceptor.js";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userDetails } from "../redux/services/userDetailsAPI.ts";
 
 export default function LoginForm() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isLoggedIn = Boolean(localStorage.getItem("access_token"));
 
   const handleShowPassword = () => {
@@ -23,6 +26,7 @@ export default function LoginForm() {
       if (data.success === true) {
         localStorage.setItem("access_token", data.token);
         toast.success(`Login successful! Welcome.`);
+        dispatch(userDetails());
         navigate("/");
         setEmail("");
         setPassword("");
