@@ -32,7 +32,7 @@ function SignIn() {
 
             if(data.success === true){
                 toast.success( 'Login successfully!' );
-                window.location.reload();
+                navigate('/')
             }
 
         } catch (error) {

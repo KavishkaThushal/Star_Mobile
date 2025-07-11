@@ -36,7 +36,7 @@ function App() {
             position="top-right"
             autoClose={3000}
             hideProgressBar={false}
-            closeOnClick
+            //closeOnClick
             pauseOnHover
             draggable
             theme="colored"
