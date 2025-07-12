@@ -14,12 +14,12 @@ export default function Header() {
   const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const { userData, loading } = useSelector((state) => state.user.userDetails);
+  //const { userData, loading } = useSelector((state) => state.user.userDetails);
 
-  useEffect(() => {
-    if (!isLoggedIn) return;
-    dispatch(userDetails());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   if (!isLoggedIn) return;
+  //   dispatch(userDetails());
+  // }, [dispatch]);
 
   const mobileNavLinks = [
     { path: "/", label: "Home" },
@@ -62,8 +62,7 @@ export default function Header() {
         className="header-nav-link authenticate-link"
         onClick={handleLogout}
       >
-        {`Hi! ${userData?.userName} need to Logout?` ||
-          (loading && "Loading...")}
+        {`need to Logout?`}
       </Link>
     ) : (
       <>
@@ -101,11 +100,10 @@ export default function Header() {
       <Link to="/contactus" className="header-nav-link">
         Contact
       </Link>
-      {isLoggedIn && (
-        <Link to="/appointment" className="header-nav-link">
-          Appointment
-        </Link>
-      )}
+
+      <Link to="/appointment" className="header-nav-link">
+        Appointment
+      </Link>
     </>
   );
 
