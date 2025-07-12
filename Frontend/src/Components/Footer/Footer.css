@@ -19,6 +19,9 @@ div.left-part-about-part{
     display: flex;
     flex-direction: column;
 }
+img.footer-logo{
+    width: 12rem;
+}
 div.footer-social-media-section{
     padding: 1.25rem 0rem;
     color: #00000080;

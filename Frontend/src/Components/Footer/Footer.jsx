@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.css'
-import logo from './img/LOGO.png'
+import logo from './img/Logo.jpg'
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
@@ -16,7 +16,7 @@ export default function Footer() {
 
           <div className='upper-section-left-part'>
             <div className='left-part-about-part' style={{ marginRight: '5rem' }}>
-              <img src={logo}></img>
+              <img src={logo} className="footer-logo"></img>
               <p className='about-part-text' style={{ color: 'white' }}>
                 Ascetic mountains hatred truth hope victorious sexuality ocean and abstract
                 inexpedient noble burying faith. Merciful madness of sea decieve derive.
