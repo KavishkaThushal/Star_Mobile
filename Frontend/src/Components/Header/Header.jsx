@@ -10,7 +10,7 @@ import { userDetails } from "../redux/services/userDetailsAPI";
 export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const navigate = useNavigate();
-  const isLoggedIn = Boolean(localStorage.getItem("access_token"));
+  const isLoggedIn = Boolean(localStorage.getItem("token"));
   const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -51,7 +51,7 @@ export default function Header() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("access_token");
+    localStorage.removeItem("token");
     navigate("/login"); // optional: redirect after logout
   };
 

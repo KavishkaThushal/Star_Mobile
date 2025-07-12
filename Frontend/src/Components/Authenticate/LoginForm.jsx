@@ -12,7 +12,7 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoggedIn = Boolean(localStorage.getItem("access_token"));
+  const isLoggedIn = Boolean(localStorage.getItem("token"));
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -24,7 +24,8 @@ export default function LoginForm() {
       const data = response.data;
       console.log(data);
       if (data.success === true) {
-        localStorage.setItem("access_token", data.token);
+        //console.log("Login successful:", );
+        localStorage.setItem("token", response.data.data.accessToken);
         toast.success(`Login successful! Welcome.`);
         dispatch(userDetails());
         navigate("/");
@@ -54,7 +55,7 @@ export default function LoginForm() {
             <button
               className="logout-button"
               onClick={() => {
-                localStorage.removeItem("access_token");
+                localStorage.removeItem("token");
                 toast.success("Logged out successfully!");
                 window.location.reload();
               }}

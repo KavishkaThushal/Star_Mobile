@@ -12,7 +12,7 @@ function AppointmentTable() {
     (state) => state.user.userAppointments
   );
   useEffect(() => {
-    if (localStorage.getItem("access_token")) {
+    if (localStorage.getItem("token")) {
       dispatch(fetchAppointments());
     }
   }, [dispatch]);
@@ -124,11 +124,11 @@ function AppointmentTable() {
       },
     },
   ];
-  const token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("token");
   console.log("token", token);
   return (
     <div className="appointment-wrapper">
-      {localStorage.getItem("access_token") ? (
+      {localStorage.getItem("token") ? (
         <div style={{ marginTop: 40 }}>
           <h2 style={{ textAlign: "center", marginBottom: 20 }}>
             Your Appointments

@@ -62,13 +62,13 @@ api.interceptors.response.use(
       try {
         const res = await api.post("auth/refresh-token");
         const newAccessToken = res.data.data.accessToken;
-        localStorage.setItem("token", newAccessToken);
+        localStorage.setItem("authToken", newAccessToken);
         api.defaults.headers.Authorization = `Bearer ${newAccessToken}`;
         processQueue(null, newAccessToken);
         return api(originalRequest);
       } catch (refreshError) {
         processQueue(refreshError, null);
-        localStorage.removeItem("token");
+        localStorage.removeItem("authToken");
         toast.error("Session expired. Please log in again.");
         window.location.href = "/login"; // redirect to login
         return Promise.reject(refreshError);
