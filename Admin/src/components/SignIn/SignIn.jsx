@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import api from "../../config/axiosInterceptor.js";
 import {toast} from "react-toastify";
 
-function SignIn() {
+function SignIn({onLogin }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
@@ -29,10 +29,10 @@ function SignIn() {
             })
             const data = response.data
             localStorage.setItem('authToken', data.data.accessToken)
-
+            console.log('Login successful:', data.data.accessToken)
             if(data.success === true){
                 toast.success( 'Login successfully!' );
-                window.location.reload();
+                onLogin(data.data.accessToken);
             }
 
         } catch (error) {

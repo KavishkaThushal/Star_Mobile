@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from "../../config/axiosInterceptor.js";
 
-function Navbar() {
+function Navbar({onLogout }) {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -23,7 +23,7 @@ function Navbar() {
 
             localStorage.removeItem('authToken');
             toast.success("Logged out successfully");
-           window.location.reload();
+           onLogout();
         } catch (err) {
             toast.error("Logout failed");
             console.error(err);
