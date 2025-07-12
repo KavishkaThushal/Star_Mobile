@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import logo from "./img/LOGO.png";
+import starLogo from "./img/star-logo.png";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
@@ -13,7 +14,7 @@ export default function Footer() {
       <div className="footer-upper-section">
         <div className="upper-section-left-part">
           <div className="left-part-about-part" style={{ marginRight: "5rem" }}>
-            <img src={logo}></img>
+            <img src={starLogo} style={{ width: "200px" }}></img>
             <p className="about-part-text" style={{ color: "white" }}>
               We provide fast, reliable mobile phone repairs using quality
               parts, handled by expert technicians you can trust.
@@ -41,25 +42,9 @@ export default function Footer() {
             </div>
           </div>
           <div className="left-part-about-part">
-            <p
-              style={{
-                fontWeight: "700",
-                fontSize: "1.5rem",
-                marginBottom: "1rem",
-                color: "white",
-              }}
-            >
-              BRANDS
-            </p>
+            <p className="about-part-title">BRANDS</p>
 
-            <p
-              style={{
-                fontSize: "0.9rem",
-                color: "white", // description text white
-                marginBottom: "1rem",
-                maxWidth: "300px",
-              }}
-            >
+            <p className="about-part-subtitile" style={{ margin: "0.5rem 0" }}>
               We offer repairs and services for all major mobile and laptop
               brands.
             </p>
@@ -68,12 +53,13 @@ export default function Footer() {
               style={{
                 listStyleType: "disc",
                 paddingLeft: "20px",
-                fontSize: "0.9rem",
-                color: "black", // brand list text black
+                fontSize: "0.8rem",
+                color: "white", // brand list text black
                 marginBottom: "1rem",
                 maxWidth: "300px",
                 columnCount: 2,
                 columnGap: "20px",
+                opacity: "0.8",
               }}
             >
               <li>Apple</li>
@@ -93,9 +79,19 @@ export default function Footer() {
           <div className="left-part-about-part">
             <p className="about-part-title">Get in touch</p>
             <p className="about-part-subtitile">Email:</p>
-            <p className="about-part-text">starmobile@gmail.com</p>
+            <p
+              className="about-part-text"
+              style={{ fontSize: "0.8rem", color: "white", opacity: "0.8" }}
+            >
+              starmobile@gmail.com
+            </p>
             <p className="about-part-subtitile">Address:</p>
-            <p className="about-part-text">Henyaya, Maddekanda, Balangoda.</p>
+            <p
+              className="about-part-text"
+              style={{ fontSize: "0.8rem", color: "white", opacity: "0.8" }}
+            >
+              Henyaya, Maddekanda, Balangoda.
+            </p>
           </div>
         </div>
 
