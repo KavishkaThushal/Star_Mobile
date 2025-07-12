@@ -8,7 +8,9 @@
     transition: all 0.3s ease;
     width: 100%;
     max-width: 250px;
-    height: max-content;
+    min-height: 270px;
+    cursor: pointer;
+    /* height: max-content; */
 }
 
 .card-container:hover {
