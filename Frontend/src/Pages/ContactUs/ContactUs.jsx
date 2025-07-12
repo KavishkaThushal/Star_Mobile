@@ -7,6 +7,7 @@ import axios from "axios";
 import api from "../../config/axiosInterceptor.js";
 
 function ContactUs() {
+  
   return (
     <div className="contact-page fadeInUp">
       <section className="header-section">
