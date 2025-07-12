@@ -9,17 +9,35 @@ import Home from "./pages/Home/Home";
 import SignIn from "./components/SignIn/SignIn";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
-    const token = localStorage.getItem('authToken');
+    //const token = localStorage.getItem('authToken');
+      const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const savedToken = localStorage.getItem("authToken");
+    setToken(savedToken);
+  }, []);
+
+  const handleLogin = (token) => {
+    localStorage.setItem("authToken", token);
+    setToken(token);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    setToken(null);
+  };
 
   return (
       <>
         {!token ? (
-            <SignIn />
+            <SignIn onLogin={handleLogin}/>
         ) : (
             <>
-              <Navbar />
+              <Navbar onLogout={handleLogout}/>
               <Sidebar />
               <Routes>
                 <Route path="/" element={<Home />} />
