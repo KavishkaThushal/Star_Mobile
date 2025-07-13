@@ -75,20 +75,25 @@ function Item() {
       </div>
 
       <div className="item-features">
-        <div className="mobile-features">
-          <h2>Features</h2>
-          {Object.entries(featuresObject).map(([key, value], index) => (
-            <span key={index} className="feature">
-              <p>{key}</p>
-              {<p>:</p>}
-              {key === "Other" ? (
-                <p style={{marginLeft:"1rem"}} dangerouslySetInnerHTML={{ __html: value }} />
-              ) : (
-                <p>{value}</p>
-              )}
-            </span>
-          ))}
-        </div>
+        {!Object.keys(featuresObject).includes("NO ") && (
+          <div className="mobile-features">
+            <h2>Features</h2>
+            {Object.entries(featuresObject).map(([key, value], index) => (
+              <span key={index} className="feature">
+                <p>{key}</p>
+                <p>:</p>
+                {key === "Other" ? (
+                  <p
+                    style={{ marginLeft: "1rem" }}
+                    dangerouslySetInnerHTML={{ __html: value }}
+                  />
+                ) : (
+                  <p>{value}</p>
+                )}
+              </span>
+            ))}
+          </div>
+        )}
 
         <div className="item-info" style={{ marginBottom: "2rem" }}>
           <h3>More Info</h3>
