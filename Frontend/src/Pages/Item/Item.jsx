@@ -75,7 +75,7 @@ function Item() {
       </div>
 
       <div className="item-features">
-        {!Object.values(featuresObject).includes("NO ") && (
+        {!Object.values(featuresObject).includes("NO") && (
           <div className="mobile-features">
             <h2>Features</h2>
             {Object.entries(featuresObject).map(([key, value], index) => (
